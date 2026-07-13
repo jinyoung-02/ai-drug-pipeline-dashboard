@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI 신약 파이프라인 경쟁사 트래킹 대시보드</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
+<style>
+  :root{
+    --blue-40:#0054D1; --blue-45:#005EEB; --blue-50:#0066FF; --blue-95:#EAF2FE; --blue-99:#F7FBFF;
+    --cn-10:#171719; --cn-15:#1B1C1E; --cn-22:#2E2F33; --cn-25:#37383C; --cn-50:#70737C;
+    --cn-90:#C2C4C8; --cn-96:#E1E2E4; --cn-97:#EAEBEC; --cn-98:#F4F4F5; --cn-99:#F7F7F8;
+    --green-40:#009632; --green-50:#00BF40; --green-95:#D9FFE6;
+    --orange-39:#D17600; --orange-50:#FF9200; --orange-95:#FEF4E6;
+    --red-40:#E52222;   --red-50:#FF4242;   --red-95:#FEECEC;
+    --violet-45:#5B37ED; --violet-95:#EEE9FE;
+
+    --primary-normal: var(--blue-50);
+    --primary-strong: var(--blue-45);
+    --primary-heavy:  var(--blue-40);
+    --label-normal:   var(--cn-10);
+    --label-neutral:  rgba(46,47,51,0.88);
+    --label-alternative: rgba(55,56,60,0.61);
+    --label-assistive:   rgba(55,56,60,0.28);
+    --label-disable:     rgba(55,56,60,0.16);
+    --bg-normal:      #FFFFFF;
+    --bg-alternative: var(--cn-99);
+    --line-outline:   rgba(112,115,124,0.22);
+    --line-solid:      var(--cn-96);
+    --line-solid-neutral: var(--cn-97);
+    --fill-normal:    rgba(112,115,124,0.08);
+    --fill-strong:    rgba(112,115,124,0.16);
+    --status-positive: var(--green-50);
+    --status-cautionary: var(--orange-50);
+    --status-negative: var(--red-50);
+
+    --shadow-xs: 0px 1px 2px -1px rgba(23,23,23,0.10);
+    --shadow-sm: 0px 2px 4px -2px rgba(23,23,23,0.06), 0px 4px 6px -1px rgba(23,23,23,0.06);
+    --shadow-md: 0px 4px 6px -2px rgba(23,23,23,0.07), 0px 10px 15px -3px rgba(23,23,23,0.07);
+
+    --radius-card: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --sidebar-w: 248px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background:var(--bg-alternative);
+    color:var(--label-normal);
+  }
+  a{color:var(--primary-strong);}
+  .app{display:flex; min-height:100vh;}
+
+  .sidebar{
+    width:var(--sidebar-w); background:var(--bg-normal); border-right:1px solid var(--line-solid);
+    flex-shrink:0; padding:20px 0 16px; display:flex; flex-direction:column; position:sticky; top:0; height:100vh;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; padding:0 20px 20px; margin-bottom:6px; border-bottom:1px solid var(--line-solid-neutral); }
+  .brand .logo{ width:36px; height:36px; border-radius:var(--radius-sm); background:var(--primary-normal);
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px; color:#fff; box-shadow:var(--shadow-xs); }
+  .brand .title{font-size:1rem; font-weight:700; line-height:1.4rem; color:var(--label-normal);}
+  .brand .sub{font-size:0.6875rem; line-height:1rem; letter-spacing:0.0252em; color:var(--label-alternative); margin-top:2px;}
+  nav{padding:14px 10px; flex:1; overflow-y:auto;}
+  .nav-item{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:var(--radius-sm); margin-bottom:2px;
+    font-size:0.875rem; line-height:1.25rem; letter-spacing:0.0145em; color:var(--label-neutral); cursor:pointer; font-weight:500;
+    transition:background .15s, color .15s; user-select:none; }
+  .nav-item .ic{width:18px; text-align:center; font-size:14px;}
+  .nav-item:hover{background:var(--fill-normal);}
+  .nav-item.active{background:var(--blue-95); color:var(--primary-strong); font-weight:700;}
+  .sidebar-footer{ padding:14px 18px; font-size:0.6875rem; line-height:1rem; color:var(--label-assistive); border-top:1px solid var(--line-solid-neutral); }
+
+  .main{flex:1; min-width:0; display:flex; flex-direction:column;}
+  .topbar{ background:var(--bg-normal); border-bottom:1px solid var(--line-solid); padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:5; gap:16px; flex-wrap:wrap; }
+  .topbar h1{font-size:1.125rem; margin:0; font-weight:700;}
+  .topbar .meta{font-size:0.75rem; color:var(--label-alternative);}
+
+  .content{padding:24px 28px 60px; max-width:1240px; width:100%; margin:0 auto;}
+  .section{display:none;}
+  .section.active{display:block;}
+
+  .disclaimer{
+    background:var(--orange-95); border:1px solid rgba(209,118,0,0.28); border-radius:var(--radius-md);
+    padding:14px 18px; font-size:0.8125rem; line-height:1.4rem; color:var(--orange-39); margin-bottom:20px;
+    display:flex; gap:10px; align-items:flex-start;
+  }
+  .disclaimer .ic{font-size:16px; line-height:1.4rem;}
+  .disclaimer.subtle{ background:var(--blue-99); border-color:rgba(0,94,235,0.18); color:var(--primary-strong); }
+
+  h2.section-title{font-size:1.0625rem; font-weight:700; margin:0 0 4px;}
+  p.section-desc{font-size:0.8125rem; color:var(--label-alternative); margin:0 0 18px; line-height:1.4rem;}
+
+  .kpi-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:14px; margin-bottom:22px;}
+  .kpi-card{ background:var(--bg-normal); border:1px solid var(--line-solid); border-radius:var(--radius-card);
+    padding:16px 18px; box-shadow:var(--shadow-xs); }
+  .kpi-card .label{font-size:0.75rem; color:var(--label-alternative); margin-bottom:6px;}
+  .kpi-card .value{font-size:1.5rem; font-weight:700; color:var(--label-normal);}
+  .kpi-card .value.accent{color:var(--primary-strong);}
+  .kpi-card .value.warn{color:var(--orange-39);}
+  .kpi-card .sub{font-size:0.6875rem; color:var(--label-assistive); margin-top:4px;}
+
+  .card{ background:var(--bg-normal); border:1px solid var(--line-solid); border-radius:var(--radius-card);
+    padding:18px 20px; box-shadow:var(--shadow-xs); margin-bottom:18px; }
+  .card h3{font-size:0.9375rem; margin:0 0 12px; font-weight:700;}
+
+  .filter-bar{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px; align-items:center; }
+  .filter-bar select, .filter-bar input[type=text]{
+    font-family:inherit; font-size:0.8125rem; padding:8px 12px; border-radius:var(--radius-sm);
+    border:1px solid var(--line-solid); background:var(--bg-normal); color:var(--label-normal); min-width:140px;
+  }
+  .filter-bar input[type=text]{min-width:220px;}
+  .filter-bar .count-note{font-size:0.75rem; color:var(--label-alternative); margin-left:auto;}
+
+  table{width:100%; border-collapse:collapse; font-size:0.8125rem;}
+  thead th{ text-align:left; font-weight:700; color:var(--label-alternative); font-size:0.6875rem;
+    text-transform:uppercase; letter-spacing:0.04em; padding:8px 10px; border-bottom:1px solid var(--line-solid); white-space:nowrap; }
+  tbody td{ padding:10px; border-bottom:1px solid var(--line-solid-neutral); vertical-align:top; }
+  tbody tr:hover{background:var(--bg-alternative);}
+  .cell-note-toggle{ cursor:pointer; color:var(--primary-strong); font-size:0.75rem; font-weight:600; }
+  .note-row{display:none; background:var(--blue-99);}
+  .note-row.show{display:table-row;}
+  .note-row td{color:var(--label-neutral); font-size:0.8125rem; line-height:1.5rem;}
+
+  .badge{ display:inline-block; padding:3px 10px; border-radius:999px; font-size:0.6875rem; font-weight:700; white-space:nowrap; }
+  .badge-preclinical{background:var(--cn-97); color:var(--cn-25);}
+  .badge-phase1{background:var(--blue-95); color:var(--primary-strong);}
+  .badge-phase12{background:#E6F1FF; color:var(--primary-heavy);}
+  .badge-phase3{background:var(--green-95); color:var(--green-40);}
+  .badge-discontinued{background:var(--red-95); color:var(--red-40);}
+  .badge-commercial{background:var(--violet-95); color:var(--violet-45);}
+
+  .funnel{display:flex; flex-direction:column; gap:10px; margin-bottom:8px;}
+  .funnel-row{display:flex; align-items:center; gap:14px;}
+  .funnel-label{width:140px; font-size:0.8125rem; font-weight:600; color:var(--label-neutral); flex-shrink:0;}
+  .funnel-bar-track{flex:1; background:var(--cn-97); border-radius:8px; height:28px; position:relative; overflow:hidden;}
+  .funnel-bar-fill{ height:100%; background:linear-gradient(90deg, var(--blue-50), var(--primary-strong)); border-radius:8px;
+    display:flex; align-items:center; justify-content:flex-end; padding-right:10px; color:#fff; font-size:0.75rem; font-weight:700;
+    min-width:2px; transition:width .3s; }
+  .funnel-bar-fill.empty{background:var(--cn-96);}
+  .funnel-count{width:36px; text-align:right; font-weight:700; font-size:0.875rem; flex-shrink:0;}
+
+  .company-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:14px;}
+  .company-card{background:var(--bg-normal); border:1px solid var(--line-solid); border-radius:var(--radius-card); padding:18px; box-shadow:var(--shadow-xs);}
+  .company-card h4{margin:0 0 8px; font-size:0.9375rem; font-weight:700;}
+  .company-card .stat-row{display:flex; justify-content:space-between; font-size:0.8125rem; margin-bottom:6px; color:var(--label-neutral);}
+  .company-card .platform-list{font-size:0.75rem; color:var(--label-alternative); margin-top:8px; line-height:1.5rem;}
+  .chip{display:inline-block; background:var(--fill-normal); border-radius:999px; padding:2px 10px; font-size:0.6875rem; margin:2px 4px 0 0; color:var(--label-neutral);}
+
+  .timeline{display:flex; flex-direction:column;}
+  .timeline-item{display:flex; gap:16px; padding:14px 0; border-bottom:1px solid var(--line-solid-neutral);}
+  .timeline-item:last-child{border-bottom:none;}
+  .timeline-date{width:96px; flex-shrink:0; font-size:0.75rem; font-weight:700; color:var(--primary-strong);}
+  .timeline-body h5{margin:0 0 4px; font-size:0.875rem; font-weight:700;}
+  .timeline-body .company-tag{font-size:0.75rem; color:var(--label-alternative); margin-bottom:6px;}
+  .timeline-body p{margin:0 0 6px; font-size:0.8125rem; line-height:1.5rem; color:var(--label-neutral);}
+  .timeline-body a{font-size:0.75rem;}
+
+  .dist-table td, .dist-table th{text-align:right;}
+  .dist-table td:first-child, .dist-table th:first-child{text-align:left;}
+  .mini-bar-track{background:var(--cn-97); border-radius:6px; height:16px; width:120px; position:relative; overflow:hidden; display:inline-block; vertical-align:middle;}
+  .mini-bar-fill{height:100%; background:var(--primary-normal); border-radius:6px;}
+
+  .tag-list{display:flex; flex-wrap:wrap; gap:6px;}
+
+  .fallback-note{font-size:0.75rem; color:var(--label-assistive); padding:20px; text-align:center;}
+
+  @media (max-width: 860px){
+    .sidebar{position:relative; height:auto; width:100%;}
+    .app{flex-direction:column;}
+    .content{padding:18px;}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">AI</div>
+      <div>
+        <div class="title">AI 신약 파이프라인</div>
+        <div class="sub">경쟁사 트래킹 대시보드</div>
+      </div>
+    </div>
+    <nav>
+      <div class="nav-item active" data-section="overview"><span class="ic">◆</span> 개요</div>
+      <div class="nav-item" data-section="tracker"><span class="ic">▤</span> 파이프라인 트래커</div>
+      <div class="nav-item" data-section="funnel"><span class="ic">▲</span> 개발단계 퍼널</div>
+      <div class="nav-item" data-section="company"><span class="ic">●</span> 회사 비교</div>
+      <div class="nav-item" data-section="milestones"><span class="ic">◷</span> 최신 마일스톤</div>
+      <div class="nav-item" data-section="benchmark"><span class="ic">◈</span> 화합물 벤치마크 (참고)</div>
+    </nav>
+    <div class="sidebar-footer">데이터 기준: 2026-07-13 스냅샷<br/>PRD 기준 v1.0</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <h1>AI 신약 파이프라인 경쟁사 트래킹</h1>
+      <div class="meta" id="topbar-meta">-</div>
+    </div>
+    <div class="content">
+
+      <div class="disclaimer">
+        <span class="ic">⚠</span>
+        <div>
+          이 대시보드는 공개 뉴스·보도자료를 기반으로 정리한 <b>10개 후보물질 · 5개 기업</b> 스냅샷이며 업계 전체 경쟁 구도를 대표하지 않습니다.
+          각 행의 <b>기준일(as_of_date)</b>이 서로 달라 한 시점의 현황이 아니라 각 발표 시점 기준임에 유의하세요.
+          하단 "화합물 벤치마크" 섹션은 공개 벤치마크 데이터(ClinTox/HIV/Tox21/BACE)로, 위 경쟁사 파이프라인과 직접 연결되지 않는 참고 자료입니다.
+        </div>
+      </div>
+
+      <!-- 1. 개요 -->
+      <section class="section active" id="sec-overview" data-section="overview">
+        <h2 class="section-title">개요</h2>
+        <p class="section-desc">경쟁사 파이프라인 현황을 한눈에 요약합니다.</p>
+        <div class="kpi-grid" id="kpi-grid"></div>
+
+        <div class="card">
+          <h3>핵심 시사점</h3>
+          <div id="overview-callout"></div>
+        </div>
+
+        <div class="card">
+          <h3>개발단계 요약</h3>
+          <div class="funnel" id="overview-funnel-mini"></div>
+        </div>
+      </section>
+
+      <!-- 2. 파이프라인 트래커 -->
+      <section class="section" id="sec-tracker" data-section="tracker">
+        <h2 class="section-title">파이프라인 트래커</h2>
+        <p class="section-desc">회사·타겟·개발단계 기준으로 후보물질을 조회합니다. 마일스톤 열을 클릭하면 상세 내용이 펼쳐집니다.</p>
+        <div class="filter-bar">
+          <select id="filter-company"><option value="">전체 기업</option></select>
+          <select id="filter-stage"><option value="">전체 단계</option></select>
+          <input type="text" id="filter-keyword" placeholder="타겟·기전·적응증 검색" />
+          <span class="count-note" id="tracker-count"></span>
+        </div>
+        <div class="card" style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>기업</th><th>후보물질</th><th>타겟/기전</th><th>적응증</th><th>AI 접근법</th>
+                <th>현재 단계</th><th>기준일</th><th>출처</th><th>마일스톤</th>
+              </tr>
+            </thead>
+            <tbody id="tracker-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. 개발단계 퍼널 -->
+      <section class="section" id="sec-funnel" data-section="funnel">
+        <h2 class="section-title">개발단계 퍼널</h2>
+        <p class="section-desc">전임상부터 상용화까지 단계별 후보물질 수입니다. 중단 건은 퍼널과 별도로 표시합니다.</p>
+        <div class="card">
+          <div class="funnel" id="funnel-main"></div>
+        </div>
+        <div class="card" id="discontinued-card"></div>
+      </section>
+
+      <!-- 4. 회사 비교 -->
+      <section class="section" id="sec-company" data-section="company">
+        <h2 class="section-title">회사 비교</h2>
+        <p class="section-desc">회사별 후보물질 수, 최고 진행단계, 대표 AI 플랫폼을 비교합니다.</p>
+        <div class="company-grid" id="company-grid"></div>
+      </section>
+
+      <!-- 5. 최신 마일스톤 -->
+      <section class="section" id="sec-milestones" data-section="milestones">
+        <h2 class="section-title">최신 마일스톤</h2>
+        <p class="section-desc">기준일(as_of_date) 내림차순입니다. 스냅샷 시점이 행마다 다르므로 발표 시점 기준으로 읽어주세요.</p>
+        <div class="card">
+          <div class="timeline" id="milestone-timeline"></div>
+        </div>
+      </section>
+
+      <!-- 6. 화합물 벤치마크 (보조) -->
+      <section class="section" id="sec-benchmark" data-section="benchmark">
+        <h2 class="section-title">화합물 벤치마크 <span style="font-weight:400; font-size:0.8125rem; color:var(--label-alternative);">(참고 섹션)</span></h2>
+        <div class="disclaimer subtle">
+          <span class="ic">ℹ</span>
+          <div>아래는 공개 ML 벤치마크 데이터셋(ClinTox·HIV·Tox21·BACE, 191개 화합물)이며, 위 경쟁사 파이프라인 후보물질과 <b>매칭되지 않는 독립적인 참고 자료</b>입니다. 자사 AI 스크리닝 기준을 세울 때 참고하세요.</div>
+        </div>
+
+        <div class="kpi-grid" id="benchmark-kpi-grid"></div>
+
+        <div class="card">
+          <h3>승인 / 독성실패 / 미분류 화합물 물성 지표 비교</h3>
+          <div style="overflow-x:auto;">
+            <table class="dist-table">
+              <thead>
+                <tr><th>지표</th><th>승인(FDA)</th><th>임상 독성실패</th><th>미분류(원시 스크리닝)</th></tr>
+              </thead>
+              <tbody id="benchmark-dist-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>효능 데이터 보유 화합물 (HIV / BACE)</h3>
+          <div id="benchmark-efficacy"></div>
+        </div>
+
+        <div class="card">
+          <h3>Tox21 다중 독성 어세이 양성 빈도</h3>
+          <div class="tag-list" id="benchmark-tox21-tags"></div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const DATA = __DATA_JSON__;
+
+function safeInit(name, fn){
+  try { fn(); } catch(e){
+    console.error('[safeInit] ' + name + ' failed:', e);
+    const el = document.getElementById(name);
+    if (el) el.innerHTML = '<div class="fallback-note">이 영역을 표시하는 중 오류가 발생했습니다 (' + name + ').</div>';
+  }
+}
+
+function esc(s){
+  if (s === null || s === undefined || s === '') return '';
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function fmtNum(n, digits){
+  if (n === null || n === undefined) return 'N/A';
+  return Number(n).toFixed(digits === undefined ? 2 : digits);
+}
+
+function stageBadgeClass(stageGroup, stageOrder){
+  if (stageGroup === '중단') return 'badge-discontinued';
+  if (stageOrder === 1) return 'badge-preclinical';
+  if (stageOrder === 2) return 'badge-phase1';
+  if (stageOrder === 3) return 'badge-phase12';
+  if (stageOrder === 4) return 'badge-phase3';
+  return 'badge-preclinical';
+}
+
+/* ---------- 1. 개요 ---------- */
+function initOverview(){
+  const meta = DATA.meta;
+  document.getElementById('topbar-meta').textContent =
+    '기준일 범위: ' + meta.as_of_date_range[0] + ' ~ ' + meta.as_of_date_range[1];
+
+  const kpis = [
+    { label: '총 후보물질 수', value: meta.total_candidates, cls:'' },
+    { label: '참여 기업 수', value: meta.total_companies, cls:'' },
+    { label: '최고 진행단계', value: 'Phase III', cls:'accent' },
+    { label: '상용화(승인) 완료', value: meta.commercialized_count + '건', cls: meta.commercialized_count === 0 ? 'warn' : 'accent' },
+  ];
+  document.getElementById('kpi-grid').innerHTML = kpis.map(k =>
+    '<div class="kpi-card"><div class="label">' + esc(k.label) + '</div><div class="value ' + k.cls + '">' + esc(k.value) + '</div></div>'
+  ).join('');
+
+  document.getElementById('overview-callout').innerHTML =
+    '<p style="margin:0 0 8px; font-size:0.875rem; line-height:1.6rem; color:var(--label-neutral);">' +
+    '2026년 7월 기준, 추적 중인 5개 AI 신약개발 기업의 후보물질 10건 중 <b>상용화(FDA 승인 등)까지 도달한 사례는 아직 없습니다.</b> ' +
+    '가장 앞선 후보는 Insilico Medicine의 <b>Rentosertib</b>로 Phase III 임상 단계입니다.</p>' +
+    '<p style="margin:0; font-size:0.8125rem; color:var(--label-alternative);">중단(Discontinued) 사례도 1건(Exscientia EXS-21546) 확인되어, 전임상~후기 임상 전반에 걸쳐 도태 위험이 있음을 보여줍니다.</p>';
+
+  renderFunnel('overview-funnel-mini', true);
+}
+
+/* ---------- 2. 파이프라인 트래커 ---------- */
+let trackerExpanded = {};
+
+function renderTrackerRows(){
+  const companyVal = document.getElementById('filter-company').value;
+  const stageVal = document.getElementById('filter-stage').value;
+  const kw = document.getElementById('filter-keyword').value.trim().toLowerCase();
+
+  const rows = DATA.pipeline.filter(r => {
+    if (companyVal && r.company !== companyVal) return false;
+    if (stageVal && r.stage_group !== stageVal) return false;
+    if (kw){
+      const hay = (r.target_mechanism + ' ' + r.indication + ' ' + r.candidate_name).toLowerCase();
+      if (hay.indexOf(kw) === -1) return false;
+    }
+    return true;
+  });
+
+  document.getElementById('tracker-count').textContent = rows.length + ' / ' + DATA.pipeline.length + '건 표시';
+
+  const tbody = document.getElementById('tracker-tbody');
+  tbody.innerHTML = rows.map((r, idx) => {
+    const rid = 'note-' + idx;
+    const badgeCls = stageBadgeClass(r.stage_group, r.stage_order);
+    return (
+      '<tr>' +
+        '<td>' + esc(r.company) + '</td>' +
+        '<td><b>' + esc(r.candidate_name) + '</b></td>' +
+        '<td>' + esc(r.target_mechanism) + '</td>' +
+        '<td>' + esc(r.indication) + '</td>' +
+        '<td>' + esc(r.ai_discovery_approach) + '</td>' +
+        '<td><span class="badge ' + badgeCls + '">' + esc(r.current_stage) + '</span></td>' +
+        '<td>' + esc(r.as_of_date) + '</td>' +
+        '<td>' + (r.source_url ? '<a href="' + esc(r.source_url) + '" target="_blank" rel="noopener">링크</a>' : 'N/A') + '</td>' +
+        '<td><span class="cell-note-toggle" onclick="toggleNote(\'' + rid + '\')">보기 ▾</span></td>' +
+      '</tr>' +
+      '<tr class="note-row" id="' + rid + '"><td colspan="9">' + esc(r.key_milestone_note || 'N/A') + '</td></tr>'
+    );
+  }).join('');
+}
+
+function toggleNote(id){
+  const el = document.getElementById(id);
+  if (el) el.classList.toggle('show');
+}
+
+function initTracker(){
+  const companies = Array.from(new Set(DATA.pipeline.map(r => r.company)));
+  const stages = Array.from(new Set(DATA.pipeline.map(r => r.stage_group)));
+
+  const companySel = document.getElementById('filter-company');
+  companies.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c; opt.textContent = c;
+    companySel.appendChild(opt);
+  });
+  const stageSel = document.getElementById('filter-stage');
+  stages.forEach(s => {
+    const opt = document.createElement('option');
+    opt.value = s; opt.textContent = s;
+    stageSel.appendChild(opt);
+  });
+
+  companySel.addEventListener('change', renderTrackerRows);
+  stageSel.addEventListener('change', renderTrackerRows);
+  document.getElementById('filter-keyword').addEventListener('input', renderTrackerRows);
+
+  renderTrackerRows();
+}
+
+/* ---------- 3. 개발단계 퍼널 ---------- */
+function renderFunnel(targetId, mini){
+  const maxCount = Math.max(1, ...DATA.funnel.map(f => f.count));
+  const html = DATA.funnel.map(f => {
+    const pct = f.count === 0 ? 3 : Math.max(8, (f.count / maxCount) * 100);
+    const emptyCls = f.count === 0 ? ' empty' : '';
+    const fillColor = f.count === 0 ? 'color:var(--label-assistive);' : 'color:#fff;';
+    return (
+      '<div class="funnel-row">' +
+        '<div class="funnel-label">' + esc(f.label) + '</div>' +
+        '<div class="funnel-bar-track"><div class="funnel-bar-fill' + emptyCls + '" style="width:' + pct + '%; ' + fillColor + '">' +
+          (f.count > 0 ? f.count + '건' : '') +
+        '</div></div>' +
+        '<div class="funnel-count">' + f.count + '</div>' +
+      '</div>'
+    );
+  }).join('');
+  document.getElementById(targetId).innerHTML = html;
+}
+
+function initFunnel(){
+  renderFunnel('funnel-main', false);
+  const dc = DATA.discontinued_count;
+  document.getElementById('discontinued-card').innerHTML =
+    '<h3>중단(Discontinued)</h3>' +
+    '<p style="margin:0; font-size:0.875rem; color:var(--label-neutral);">퍼널 밖에서 별도로 집계합니다: <b>' + dc + '건</b>' +
+    (dc > 0 ? ' — Exscientia EXS-21546 (A2A adenosine receptor antagonist)이 Recursion 합병 이후 우선순위에서 제외되어 중단되었습니다.' : '') +
+    '</p>';
+}
+
+/* ---------- 4. 회사 비교 ---------- */
+function initCompany(){
+  const grid = document.getElementById('company-grid');
+  grid.innerHTML = DATA.company_summary.map(c => {
+    const badgeCls = c.best_stage_label === '중단' ? 'badge-discontinued' : stageBadgeClass('', c.best_stage_order);
+    return (
+      '<div class="company-card">' +
+        '<h4>' + esc(c.company) + '</h4>' +
+        '<div class="stat-row"><span>후보물질 수</span><b>' + c.candidate_count + '건</b></div>' +
+        '<div class="stat-row"><span>최고 진행단계</span><span class="badge ' + badgeCls + '">' + esc(c.best_stage_label) + '</span></div>' +
+        (c.discontinued_count > 0 ? '<div class="stat-row"><span>중단</span><b style="color:var(--red-40);">' + c.discontinued_count + '건</b></div>' : '') +
+        '<div class="platform-list"><b>대표 후보물질:</b> ' + c.candidates.map(esc).join(', ') + '</div>' +
+        '<div class="platform-list"><b>AI 접근법:</b> ' + c.platforms.map(esc).join(' · ') + '</div>' +
+      '</div>'
+    );
+  }).join('');
+}
+
+/* ---------- 5. 최신 마일스톤 ---------- */
+function initMilestones(){
+  const list = DATA.milestones;
+  document.getElementById('milestone-timeline').innerHTML = list.map(r => {
+    const badgeCls = stageBadgeClass(r.stage_group, r.stage_order);
+    return (
+      '<div class="timeline-item">' +
+        '<div class="timeline-date">' + esc(r.as_of_date) + '</div>' +
+        '<div class="timeline-body">' +
+          '<h5>' + esc(r.candidate_name) + ' <span class="badge ' + badgeCls + '">' + esc(r.current_stage) + '</span></h5>' +
+          '<div class="company-tag">' + esc(r.company) + ' · ' + esc(r.target_mechanism) + '</div>' +
+          '<p>' + esc(r.key_milestone_note || 'N/A') + '</p>' +
+          (r.source_url ? '<a href="' + esc(r.source_url) + '" target="_blank" rel="noopener">원문 보기 →</a>' : '') +
+        '</div>' +
+      '</div>'
+    );
+  }).join('');
+}
+
+/* ---------- 6. 화합물 벤치마크 ---------- */
+function initBenchmark(){
+  const b = DATA.benchmark;
+
+  const toxPct = b.toxicity_valid_n ? Math.round((b.toxicity_positive_n / b.toxicity_valid_n) * 1000) / 10 : 0;
+  const kpis = [
+    { label: '총 화합물 수', value: b.total_compounds },
+    { label: '데이터셋 구성', value: Object.entries(b.dataset_counts).map(([k,v]) => k + ' ' + v).join(' / ') },
+    { label: '독성 확인 비율', value: toxPct + '%', sub: b.toxicity_positive_n + ' / ' + b.toxicity_valid_n + ' (유효표본)' },
+    { label: 'FDA 승인 화합물', value: (b.fda_group_counts.approved || 0) + '건' },
+  ];
+  document.getElementById('benchmark-kpi-grid').innerHTML = kpis.map(k =>
+    '<div class="kpi-card"><div class="label">' + esc(k.label) + '</div><div class="value">' + esc(k.value) + '</div>' +
+    (k.sub ? '<div class="sub">' + esc(k.sub) + '</div>' : '') + '</div>'
+  ).join('');
+
+  const fields = [
+    ['qed_druglikeness', 'QED (약물유사성, 0~1)'],
+    ['lipinski_violations', 'Lipinski 위반 건수'],
+    ['logp', 'LogP'],
+    ['tpsa', 'TPSA'],
+    ['mw', '분자량 (mw)'],
+  ];
+  const cats = ['approved', 'failed_toxicity', 'unclassified'];
+  const catLabel = { approved: '승인', failed_toxicity: '독성실패', unclassified: '미분류' };
+
+  document.getElementById('benchmark-dist-tbody').innerHTML = fields.map(([field, label]) => {
+    const cells = cats.map(cat => {
+      const stats = b.fda_group_stats[cat] && b.fda_group_stats[cat][field];
+      if (!stats) return '<td>N/A</td>';
+      return '<td>' + fmtNum(stats.mean) + ' <span style="color:var(--label-assistive); font-size:0.6875rem;">(n=' + stats.n + ')</span></td>';
+    }).join('');
+    return '<tr><td>' + esc(label) + '</td>' + cells + '</tr>';
+  }).join('') +
+  '<tr><td style="color:var(--label-assistive); font-size:0.75rem;">표본 수</td>' +
+    cats.map(cat => '<td>' + (b.fda_group_counts[cat] || 0) + '건</td>').join('') +
+  '</tr>';
+
+  const effRows = Object.entries(b.efficacy_by_dataset).map(([ds, d]) => {
+    const pct = d.n ? Math.round((d.active / d.n) * 1000) / 10 : 0;
+    const diseaseMap = { HIV: 'HIV/AIDS (HIV 복제효소 억제)', BACE: '알츠하이머병 (BACE-1 β-분비효소 저해)' };
+    return (
+      '<div class="stat-row" style="border-bottom:1px solid var(--line-solid-neutral); padding-bottom:10px; margin-bottom:10px;">' +
+        '<span><b>' + esc(ds) + '</b> — ' + esc(diseaseMap[ds] || d.assay) + '</span>' +
+        '<span>활성 ' + d.active + ' / ' + d.n + ' (' + pct + '%)</span>' +
+      '</div>'
+    );
+  }).join('');
+  document.getElementById('benchmark-efficacy').innerHTML = effRows || '<p class="fallback-note">효능 데이터 없음</p>';
+
+  const tagEntries = Object.entries(b.tox21_assay_counts);
+  document.getElementById('benchmark-tox21-tags').innerHTML = tagEntries.length
+    ? tagEntries.map(([tag, n]) => '<span class="chip">' + esc(tag) + ' · ' + n + '건</span>').join('')
+    : '<p class="fallback-note">Tox21 다중 어세이 데이터 없음</p>';
+}
+
+/* ---------- 네비게이션 ---------- */
+function initNav(){
+  const items = document.querySelectorAll('.nav-item');
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      items.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      const target = document.getElementById('sec-' + item.dataset.section);
+      if (target) target.classList.add('active');
+    });
+  });
+}
+
+safeInit('kpi-grid', initOverview);
+safeInit('tracker-tbody', initTracker);
+safeInit('funnel-main', initFunnel);
+safeInit('company-grid', initCompany);
+safeInit('milestone-timeline', initMilestones);
+safeInit('benchmark-kpi-grid', initBenchmark);
+initNav();
+</script>
+</body>
+</html>

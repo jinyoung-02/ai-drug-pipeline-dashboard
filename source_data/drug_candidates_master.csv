@@ -1,0 +1,192 @@
+compound_id,source_dataset,input_smiles,canonical_smiles,mw,logp,hbd,hba,tpsa,rotatable_bonds,qed_druglikeness,lipinski_violations,toxicity_flag,toxicity_assay,fda_approved,developed_status,efficacy_assay,efficacy_value,efficacy_active_flag
+CT0001,ClinTox,COCCOC(=O)NCCCC[C@@H](C=O)NC(=O)OCCOC,COCCOC(=O)NCCCC[C@@H](C=O)NC(=O)OCCOC,334.37,0.47,2,7,112.19,13,0.3717,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0002,ClinTox,Cl[C@H]1[C@H](Cl)[C@@H](Cl)[C@@H](Cl)[C@H](Cl)[C@H]1Cl,Cl[C@H]1[C@H](Cl)[C@@H](Cl)[C@@H](Cl)[C@H](Cl)[C@H]1Cl,290.83,3.64,0,0,0.0,0,0.5976,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0003,ClinTox,O=C([O-])[C@@H](O)[C@@H](O)[C@H](O)[C@@H](O)C(=O)[O-],O=C([O-])[C@@H](O)[C@@H](O)[C@H](O)[C@@H](O)C(=O)[O-],208.12,-6.07,4,8,161.18,5,0.3466,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0004,ClinTox,[H]/[NH+]=C(\N)C1=CC(=O)/C(=C\C=C2:C:C:C(=C(N)[NH3+]):C:C:2)C=C1,[H]/[NH+]=C(\N)C1=CC(=O)/C(=C\C=c2ccc(=C(N)[NH3+])cc2)C=C1,282.35,-3.16,4,2,122.34,2,0.26,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0005,ClinTox,[H]/[NH+]=C(\N)C1:C:C:C(OCCCCCOC2:C:C:C(/C(N)=[NH+]/[H]):C:C:2):C:C:1,[H]/[NH+]=C(\N)c1ccc(OCCCCCOc2ccc(/C(N)=[NH+]/[H])cc2)cc1,342.44,-0.76,4,2,121.68,10,0.2576,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0006,ClinTox,O=[N+]([O-])[O-],O=[N+]([O-])[O-],62.0,-0.24,0,3,66.2,0,0.287,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0007,ClinTox,[N]=O,[N]=O,30.01,-0.45,0,1,39.37,0,0.3553,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0008,ClinTox,O=[99Tc](=O)(=O)[O-],[O]=[99Tc](=[O])(=[O])[O-],162.9,-1.55,0,4,74.27,0,0.4328,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0009,ClinTox,O=P([O-])([O-])F,O=P([O-])([O-])F,97.97,-1.22,0,3,63.19,0,0.3567,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0010,ClinTox,O=S(=O)([O-])[O-],O=S(=O)([O-])[O-],96.06,-1.34,0,4,80.26,0,0.2759,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0011,ClinTox,O=S([O-])([O-])=S,O=S([O-])([O-])=S,112.13,-1.01,0,4,63.19,0,0.4027,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0012,ClinTox,[Se],[Se],78.96,-0.38,0,0,0.0,0,0.347,0,1,clinical_trial_toxicity_failure,0,Failed in Clinical Trials (Toxicity),,,
+CT0013,ClinTox,CC(C)C[C@H](NC(=O)[C@H](CC1:C:C:C:C:C:1)NC(=O)C1:C:N:C:C:N:1)B(O)O,CC(C)C[C@H](NC(=O)[C@H](Cc1ccccc1)NC(=O)c1cnccn1)B(O)O,384.25,0.36,4,6,124.44,9,0.463,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0014,ClinTox,CC(C)C[C@H](NC(=O)[C@H](CC1:C:C:C:C:C:1)NC(=O)C1:C:N:C:C:N:1)B(O)O,CC(C)C[C@H](NC(=O)[C@H](Cc1ccccc1)NC(=O)c1cnccn1)B(O)O,384.25,0.36,4,6,124.44,9,0.463,0,1,clinical_trial_toxicity_failure,0,Failed in Clinical Trials (Toxicity),,,
+CT0015,ClinTox,CC(C)C[C@H](NC(=O)CNC(=O)C1:C:C(Cl):C:C:C:1Cl)B(O)O,CC(C)C[C@H](NC(=O)CNC(=O)c1cc(Cl)ccc1Cl)B(O)O,361.03,1.27,4,4,98.66,7,0.55,0,1,clinical_trial_toxicity_failure,0,Failed in Clinical Trials (Toxicity),,,
+CT0016,ClinTox,C#CC1(OC(N)=O)CCCCC1,C#CC1(OC(N)=O)CCCCC1,167.21,1.42,1,2,52.32,1,0.6003,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0017,ClinTox,C#CC[NH2+][C@@H]1CCC2:C:C:C:C:C:21,C#CC[NH2+][C@@H]1CCc2ccccc21,172.25,0.87,1,0,16.61,2,0.6375,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0018,ClinTox,C#CCC(CC1:C:N:C2:N:C(N):N:C(N):C:2:N:1)C1:C:C:C(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-]):C:C:1,C#CCC(Cc1cnc2nc(N)nc(N)c2n1)c1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1,475.47,-1.69,3,11,212.96,10,0.2813,1,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0019,ClinTox,C#N,C#N,27.03,0.14,0,1,23.79,0,0.3698,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0020,ClinTox,N#C[Fe-2](C#N)(C#N)(C#N)(C#N)N=O,N#[C][Fe-2]([C]#N)([C]#N)([C]#N)([C]#N)[N]=O,215.94,0.3,0,7,148.38,1,0.4537,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0021,ClinTox,O=C1O[C@H]([C@@H](O)CO)C([O-])=C1O,O=C1O[C@H]([C@@H](O)CO)C([O-])=C1O,175.12,-2.61,3,6,110.05,2,0.3966,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0022,ClinTox,[NH3+][C@@H](CS)C(=O)[O-],[NH3+][C@@H](CS)C(=O)[O-],121.16,-2.72,2,3,67.77,2,0.3896,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0023,ClinTox,OC[C@H]1O[C@](O)(CO)[C@@H](O)[C@@H]1O[C@@H]1O[C@H](CO)[C@H](O)[C@H](O)[C@H]1O,OC[C@H]1O[C@@H](O[C@@H]2[C@@H](CO)O[C@](O)(CO)[C@H]2O)[C@H](O)[C@@H](O)[C@H]1O,342.3,-5.4,8,11,189.53,5,0.2379,2,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0024,ClinTox,O=S(=O)(OC[C@H]1O[C@@H](O[C@]2(COS(=O)(=O)O[Al](O)O)O[C@H](OS(=O)(=O)O[Al](O)O)[C@@H](OS(=O)(=O)O[Al](O)O)[C@@H]2OS(=O)(=O)O[Al](O)O)[C@H](OS(=O)(=O)O[Al](O)O)[C@@H](OS(=O)(=O)O[Al](O)O)[C@@H]1OS(=O)(=O)O[Al](O)O)O[Al](O)O,O=S(=O)(OC[C@H]1O[C@@H](O[C@]2(COS(=O)(=O)[O][Al]([OH])[OH])O[C@H](OS(=O)(=O)[O][Al]([OH])[OH])[C@@H](OS(=O)(=O)[O][Al]([OH])[OH])[C@@H]2OS(=O)(=O)[O][Al]([OH])[OH])[C@H](OS(=O)(=O)[O][Al]([OH])[OH])[C@@H](OS(=O)(=O)[O][Al]([OH])[OH])[C@@H]1OS(=O)(=O)[O][Al]([OH])[OH])[O][Al]([OH])[OH],1448.69,-19.4,16,51,772.17,36,0.0259,3,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0025,ClinTox,OC[C@H]1O[C@H](O)[C@H](F)[C@@H](O)[C@@H]1O,OC[C@H]1O[C@H](O)[C@H](F)[C@@H](O)[C@@H]1O,182.15,-2.24,4,5,90.15,1,0.3678,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0026,ClinTox,OC[C@H]1O[C@H](O[C@]2(CO)O[C@H](CO)[C@@H](O)[C@@H]2O)[C@H](O)[C@@H](O)[C@@H]1O,OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O,342.3,-5.4,8,11,189.53,5,0.2379,2,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0027,ClinTox,O=C1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O,O=C1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O,178.14,-3.01,4,6,107.22,1,0.3184,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0028,ClinTox,O=C[C@H](O)[C@@H](O)[C@H](O)CO,O=C[C@H](O)[C@@H](O)[C@H](O)CO,150.13,-2.74,4,5,97.99,4,0.3258,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0029,ClinTox,OC[C@@H](O)[C@@H](O)[C@H](O)[C@H](O)CO,OC[C@@H](O)[C@@H](O)[C@H](O)[C@H](O)CO,182.17,-3.59,6,6,121.38,5,0.2613,1,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0030,ClinTox,O=C([O-])[C@H](O)[C@@H](O)[C@H](O)[C@H](O)CO,O=C([O-])[C@H](O)[C@@H](O)[C@H](O)[C@H](O)CO,195.15,-4.83,5,7,141.28,5,0.296,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0031,ClinTox,OC[C@H](O)[C@@H](O)[C@H](O)[C@H](O)CO,OC[C@@H](O)[C@@H](O)[C@H](O)[C@@H](O)CO,182.17,-3.59,6,6,121.38,5,0.2613,1,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0032,ClinTox,NC(N)=[NH2+],NC(N)=[NH2+],60.08,-2.98,3,0,77.63,0,0.2059,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0033,ClinTox,FC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)Br,FC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)Br,498.96,6.35,0,0,0.0,6,0.2956,1,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0034,ClinTox,FC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F,FC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F,338.04,4.65,0,0,0.0,3,0.6573,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0035,ClinTox,O=C([O-])C(O)C(O)C(=O)[O-],O=C([O-])C(O)C(O)C(=O)[O-],148.07,-4.79,2,6,120.72,3,0.4139,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0036,ClinTox,O=C([O-])C(S)C(S)C(=O)[O-],O=C([O-])C(S)C(S)C(=O)[O-],180.21,-2.92,2,6,80.26,3,0.456,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0037,ClinTox,O=P([O-])([O-])OCC(Cl)(Cl)Cl,O=P([O-])([O-])OCC(Cl)(Cl)Cl,227.37,0.2,0,4,72.42,2,0.4989,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0038,ClinTox,[NH3+]C(CO)(CO)CO,[NH3+]C(CO)(CO)CO,122.14,-3.06,4,3,88.33,3,0.3204,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0039,ClinTox,OCC(O)CO,OCC(O)CO,92.09,-1.67,3,3,60.69,2,0.3815,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0040,ClinTox,O=[N+]([O-])OCC(CO[N+](=O)[O-])O[N+](=O)[O-],O=[N+]([O-])OCC(CO[N+](=O)[O-])O[N+](=O)[O-],227.08,-1.02,0,9,157.11,8,0.3732,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0041,ClinTox,OCC(S)CS,OCC(S)CS,124.23,0.21,3,3,20.23,2,0.4494,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0042,ClinTox,FC(F)(F)C(F)(F)C(F)(F)F,FC(F)(F)C(F)(F)C(F)(F)F,188.02,2.75,0,0,0.0,0,0.5124,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0043,ClinTox,FC(F)(F)C(Cl)Br,FC(F)(F)C(Cl)Br,197.38,2.51,0,0,0.0,0,0.5235,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0044,ClinTox,FC(F)OC(Cl)C(F)(F)F,FC(F)OC(Cl)C(F)(F)F,184.49,2.35,0,1,9.23,2,0.4729,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0045,ClinTox,FC(F)OC(F)C(F)(F)F,FC(F)OC(F)C(F)(F)F,168.04,2.08,0,1,9.23,2,0.5732,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0046,ClinTox,FC(F)=C(F)F,FC(F)=C(F)F,100.01,1.99,0,0,0.0,0,0.4081,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0047,ClinTox,[NH3+]CC(=O)[O-],[NH3+]CC(=O)[O-],75.07,-3.02,1,2,67.77,1,0.3602,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0048,ClinTox,O=C([O-])CC(O)(CC(=O)[O-])C(=O)[O-],O=C([O-])CC(O)(CC(=O)[O-])C(=O)[O-],189.1,-5.25,1,7,140.62,5,0.4549,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0049,ClinTox,FC(F)OC(F)(F)C(F)Cl,FC(F)OC(F)(F)C(F)Cl,184.49,2.35,0,1,9.23,3,0.4833,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0050,ClinTox,O=C([O-])/C=C/C(=O)[O-],O=C([O-])/C=C/C(=O)[O-],114.06,-2.96,0,4,80.26,2,0.3591,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0051,ClinTox,NC(N)=[NH+]CCC[C@H]([NH3+])C(=O)[O-],NC(N)=[NH+]CCC[C@H]([NH3+])C(=O)[O-],175.21,-5.52,4,2,133.78,5,0.1882,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0052,ClinTox,NCC[NH2+]CCNCC[NH2+]CCN,NCC[NH2+]CCNCC[NH2+]CCN,191.32,-4.38,5,3,97.29,10,0.2257,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0053,ClinTox,[NH3+]CCC(O)(P(=O)([O-])[O-])P(=O)([O-])[O-],[NH3+]CCC(O)(P(=O)([O-])[O-])P(=O)([O-])[O-],232.04,-4.91,2,7,174.25,4,0.456,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0054,ClinTox,[NH3+]CCC[NH2+]CCSP(=O)([O-])[O-],[NH3+]CCC[NH2+]CCSP(=O)([O-])[O-],214.23,-3.26,2,4,107.44,7,0.3424,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0055,ClinTox,[NH3+]CCCC([NH3+])(C(=O)[O-])C(F)F,[NH3+]CCCC([NH3+])(C(=O)[O-])C(F)F,183.18,-3.0,2,2,95.41,5,0.4749,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0056,ClinTox,[NH3+]CCCC(O)(P(=O)([O-])[O-])P(=O)([O-])[O-],[NH3+]CCCC(O)(P(=O)([O-])[O-])P(=O)([O-])[O-],246.07,-4.52,2,7,174.25,5,0.4589,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0057,ClinTox,O=C([O-])CCC(=O)[O-],O=C([O-])CCC(=O)[O-],116.07,-2.73,0,4,80.26,3,0.4005,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0058,ClinTox,[NH3+]CC(=O)CCC(=O)[O-],[NH3+]CC(=O)CCC(=O)[O-],131.13,-2.67,1,3,84.84,4,0.4511,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0059,ClinTox,O=C([O-])CCCO,O=C([O-])CCCO,103.1,-1.49,1,3,60.36,3,0.473,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+CT0060,ClinTox,NC(=O)CC[C@H]([NH3+])C(=O)[O-],NC(=O)CC[C@H]([NH3+])C(=O)[O-],146.15,-3.39,2,3,110.86,4,0.4311,0,0,clinical_trial_toxicity_failure,1,Approved/Marketed Drug,,,
+TX0061,Tox21,CCOC1:C:C:C2:N:C(S(N)(=O)=O):S:C:2:C:1,CCOc1ccc2nc(S(N)(=O)=O)sc2c1,258.32,1.34,1,5,82.28,3,0.9003,0,1,NR-AhR;SR-ARE,,,,,
+TX0062,Tox21,CCN1C(=O)NC(C2:C:C:C:C:C:2)C1=O,CCN1C(=O)NC(c2ccccc2)C1=O,204.23,1.3,1,2,49.41,2,0.738,0,0,,,,,,
+TX0063,Tox21,CC[C@]1(O)CC[C@H]2[C@@H]3CCC4=CCCC[C@@H]4[C@H]3CC[C@@]21C,CC[C@]1(O)CC[C@H]2[C@@H]3CCC4=CCCC[C@@H]4[C@H]3CC[C@@]21C,288.48,5.09,1,1,20.23,1,0.6663,1,0,,,,,,
+TX0064,Tox21,CCCN(CC)C(CC)C(=O)NC1:C(C):C:C:C:C:1C,CCCN(CC)C(CC)C(=O)Nc1c(C)cccc1C,276.42,3.75,1,2,32.34,7,0.8223,0,0,,,,,,
+TX0065,Tox21,CC(O)(P(=O)(O)O)P(=O)(O)O,CC(O)(P(=O)(O)O)P(=O)(O)O,206.03,-0.99,5,3,135.29,2,0.3656,0,0,,,,,,
+TX0066,Tox21,CC(C)(C)OOC(C)(C)CCC(C)(C)OOC(C)(C)C,CC(C)(C)OOC(C)(C)CCC(C)(C)OOC(C)(C)C,290.44,4.82,0,4,36.92,7,0.4975,0,0,,,,,,
+TX0067,Tox21,O=S(=O)(Cl)C1:C:C:C:C:C:1,O=S(=O)(Cl)c1ccccc1,176.62,1.61,0,2,34.14,1,0.6097,0,0,,,,,,
+TX0068,Tox21,O=C(O)CC1:C:C(I):C(OC2:C:C:C(O):C(I):C:2):C(I):C:1,O=C(O)Cc1cc(I)c(Oc2ccc(O)c(I)c2)c(I)c1,621.93,4.63,2,3,66.76,4,0.4893,1,1,NR-ER;SR-ARE;SR-HSE;SR-p53,,,,,
+TX0069,Tox21,OC[C@H](O)[C@@H](O)[C@H](O)CO,OC[C@@H](O)[C@H](O)[C@@H](O)CO,152.15,-2.95,5,5,101.15,4,0.2964,0,0,,,,,,
+TX0070,Tox21,CCCCCCCC(=O)[O-].CCCCCCCC(=O)[O-].[Zn+2],CCCCCCCC(=O)[O-].CCCCCCCC(=O)[O-].[Zn+2],351.8,2.19,0,4,80.26,12,0.3985,0,0,,,,,,
+TX0071,Tox21,NC(=O)C1:C:C:C:[N+]([C@@H]2O[C@H](COP(=O)([O-])OP(=O)(O)OC[C@H]3O[C@@H](N4:C:N:C5:C(N):N:C:N:C:5:4)[C@H](O)[C@@H]3O)[C@@H](O)[C@H]2O):C:1,NC(=O)c1ccc[n+]([C@@H]2O[C@H](COP(=O)([O-])OP(=O)(O)OC[C@H]3O[C@@H](n4cnc5c(N)ncnc54)[C@H](O)[C@@H]3O)[C@@H](O)[C@H]2O)c1,663.43,-3.65,7,17,321.09,11,0.0768,3,0,,,,,,
+TX0072,Tox21,O=C1:[NH]:C(=O):N([C@H]2C[C@H](O)[C@@H](CO)O2):C:C:1I,O=c1[nH]c(=O)n([C@H]2C[C@H](O)[C@@H](CO)O2)cc1I,354.1,-1.22,3,5,104.55,2,0.578,0,0,,,,,,
+TX0073,Tox21,CC(C)COC(=O)C(C)C,CC(C)COC(=O)C(C)C,144.21,1.84,0,2,26.3,3,0.5648,0,0,,,,,,
+TX0074,Tox21,C=C(C)C(=O)OCCOC(=O)C(=C)C,C=C(C)C(=O)OCCOC(=O)C(=C)C,198.22,1.22,0,4,52.6,5,0.3785,0,0,,,,,,
+TX0075,Tox21,Cl/C=C\C[N+]12CN3CN(CN(C3)C1)C2,Cl/C=C\C[N+]12CN3CN(CN(C3)C1)C2,215.71,0.25,0,3,9.72,2,0.6118,0,1,SR-ARE,,,,,
+TX0076,Tox21,O=C([O-])CC1:C:C:C:C2:C:C:C:C:C:1:2,O=C([O-])Cc1cccc2ccccc12,185.2,1.13,0,2,40.13,2,0.7033,0,1,NR-PPAR-gamma,,,,,
+TX0077,Tox21,CCCCCCCCCCOCC(O)CN,CCCCCCCCCCOCC(O)CN,231.38,2.46,2,3,55.48,12,0.5073,0,0,,,,,,
+TX0078,Tox21,CCN(CC)C(=O)C1:C:C:C:N:C:1,CCN(CC)C(=O)c1cccnc1,178.24,1.56,0,2,33.2,3,0.7034,0,0,,,,,,
+TX0079,Tox21,COC1:C:C(O):C:C(O):C:1,COc1cc(O)cc(O)c1,140.14,1.11,2,3,49.69,1,0.6138,0,0,,,,,,
+TX0080,Tox21,CCOC(=O)C1:C:C:C:N:C:1,CCOC(=O)c1cccnc1,151.16,1.26,0,3,39.19,2,0.5971,0,0,,,,,,
+TX0081,Tox21,CCOC1:C:C:C(S(=O)(=O)O):C2:C:C:C:N:C:1:2,CCOc1ccc(S(=O)(=O)O)c2cccnc12,253.28,1.88,1,4,76.49,3,0.845,0,1,NR-ER;NR-ER-LBD,,,,,
+TX0082,Tox21,O=C(O)[C@H](O)C1:C:C:C:C:C:1,O=C(O)[C@H](O)c1ccccc1,152.15,0.8,2,2,57.53,2,0.6587,0,0,,,,,,
+TX0083,Tox21,NC1:C:C:C(/N=N/C2:C:C:C:C:C:2):C:C:1,Nc1ccc(/N=N/c2ccccc2)cc1,197.24,3.68,1,3,50.74,2,0.579,0,1,NR-AhR;NR-ER;SR-ARE;SR-ATAD5,,,,,
+TX0084,Tox21,CN[C@@H]1C[C@@H](C2:C:C:C(Cl):C(Cl):C:2)C2:C:C:C:C:C:21,CN[C@@H]1C[C@@H](c2ccc(Cl)c(Cl)c2)c2ccccc21,292.21,4.79,1,1,12.03,2,0.8388,0,1,NR-AhR,,,,,
+TX0085,Tox21,CN1[C@H]2CC[C@@H]1C[C@H](OC(=O)C1:C:C(Cl):C:C(Cl):C:1)C2,CN1[C@@H]2CC[C@H]1C[C@@H](OC(=O)c1cc(Cl)cc(Cl)c1)C2,314.21,3.78,0,3,29.54,2,0.7782,0,0,,,,,,
+TX0086,Tox21,CN(C)CCCN1C2:C:C:C:C:C:2CCC2:C:C:C(Cl):C:C:21,CN(C)CCCN1c2ccccc2CCc2ccc(Cl)cc21,314.86,4.53,0,2,6.48,4,0.8179,0,0,,,,,,
+TX0087,Tox21,C#CCO,C#CCO,56.06,-0.39,1,1,20.23,0,0.3747,0,0,,,,,,
+TX0088,Tox21,NC1:C:C:C:C:C:1S(=O)(=O)O,Nc1ccccc1S(=O)(=O)O,173.19,0.52,2,3,80.39,1,0.4788,0,0,,,,,,
+TX0089,Tox21,CC(O)CC(C)(C)O,CC(O)CC(C)(C)O,118.18,0.53,2,2,40.46,2,0.5549,0,0,,,,,,
+TX0090,Tox21,CC(C)(C)CC(C)(C)N,CC(C)(C)CC(C)(C)N,129.25,2.16,1,1,26.02,1,0.5766,0,0,,,,,,
+TX0091,Tox21,CC(=O)CC(C)C,CC(=O)CC(C)C,100.16,1.62,0,1,17.07,2,0.515,0,0,,,,,,
+TX0092,Tox21,CCCC(C)=O,CCCC(C)=O,86.13,1.38,0,1,17.07,2,0.4958,0,0,,,,,,
+TX0093,Tox21,NC1:N:C2:C:C:C:C:C:2:[NH]:1,Nc1nc2ccccc2[nH]1,133.15,1.15,2,2,54.7,0,0.5659,0,1,NR-AhR,,,,,
+TX0094,Tox21,OC1:C(Cl):C(Cl):C(Cl):C(Cl):C:1Cl,Oc1c(Cl)c(Cl)c(Cl)c(Cl)c1Cl,266.34,4.66,1,1,20.23,0,0.5346,0,1,NR-AhR;SR-ARE;SR-MMP;SR-p53,,,,,
+TX0095,Tox21,C1:C:C:C(C2:C:C:C:C:C:2):C:C:1,c1ccc(-c2ccccc2)cc1,154.21,3.35,0,0,0.0,1,0.5905,0,0,,,,,,
+TX0096,Tox21,CNC(=O)NC1:C:C:C(Cl):C(Cl):C:1,CNC(=O)Nc1ccc(Cl)c(Cl)c1,219.07,2.74,2,1,41.13,1,0.7485,0,1,NR-AhR,,,,,
+TX0097,Tox21,CC(=O)NC1:C:C:C(C):C(Cl):C:1,CC(=O)Nc1ccc(C)c(Cl)c1,183.64,2.61,1,1,29.1,1,0.7127,0,0,,,,,,
+TX0098,Tox21,CCCCNC(=S)NCCCC,CCCCNC(=S)NCCCC,188.34,2.05,2,1,24.06,6,0.4926,0,1,SR-HSE,,,,,
+TX0099,Tox21,CCCCNC(=O)NCCCC,CCCCNC(=O)NCCCC,172.27,1.89,2,1,41.13,6,0.5901,0,0,,,,,,
+TX0100,Tox21,CC(C)N(C1:C:C:C:C:C:1)C(C)C,CC(C)N(c1ccccc1)C(C)C,177.29,3.31,0,1,3.24,3,0.6843,0,0,,,,,,
+TX0101,Tox21,CCC1:C:C:C:C(C):C:1,CCc1cccc(C)c1,120.19,2.56,0,0,0.0,1,0.534,0,0,,,,,,
+TX0102,Tox21,CC(C)CCCCCCCOP(OCCCCCCCC(C)C)OC1:C:C:C:C:C:1,CC(C)CCCCCCCOP(OCCCCCCCC(C)C)Oc1ccccc1,438.63,9.32,0,3,27.69,20,0.1499,1,0,,,,,,
+TX0103,Tox21,CCCCCCCC/C=C\CCCCCCCC(=O)OC(CO)CO,CCCCCCCC/C=C\CCCCCCCC(=O)OC(CO)CO,356.55,4.92,2,4,66.76,18,0.2077,0,1,SR-HSE,,,,,
+TX0104,Tox21,CCCCCCCCCCC=CC1CC(=O)OC1=O,CCCCCCCCCCC=CC1CC(=O)OC1=O,266.38,4.16,0,3,43.37,10,0.2579,0,1,SR-ARE,,,,,
+TX0105,Tox21,CC(C)C(NC1:C:C:C(C(F)(F)F):C:C:1Cl)C(=O)OC(C#N)C1:C:C:C:C(OC2:C:C:C:C:C:2):C:1,CC(C)C(Nc1ccc(C(F)(F)F)cc1Cl)C(=O)OC(C#N)c1cccc(Oc2ccccc2)c1,502.92,7.4,1,5,71.35,8,0.3249,2,1,SR-MMP,,,,,
+TX0106,Tox21,CS(=O)(=O)NC(=O)C1:C:C(OC2:C:C:C(C(F)(F)F):C:C:2Cl):C:C:C:1[N+](=O)[O-],CS(=O)(=O)NC(=O)c1cc(Oc2ccc(C(F)(F)F)cc2Cl)ccc1[N+](=O)[O-],438.77,3.75,1,6,115.61,5,0.5611,0,0,,,,,,
+TX0107,Tox21,CCOP(=S)(CC)SC1:C:C:C:C:C:1,CCOP(=S)(CC)Sc1ccccc1,246.34,4.14,0,3,9.23,5,0.7224,0,1,NR-Aromatase,,,,,
+TX0108,Tox21,CC/C=C\CCCCO,CC/C=C\CCCCO,128.22,2.12,1,1,20.23,5,0.4439,0,0,,,,,,
+TX0109,Tox21,NC1:C:C:C:C:C:1C(=O)OC1:C:C:C2:C:C:C:C:C:2:C:1,Nc1ccccc1C(=O)Oc1ccc2ccccc2c1,263.3,3.64,1,3,52.32,2,0.436,0,1,NR-AhR;NR-ER;SR-ARE;SR-ATAD5;SR-MMP,,,,,
+TX0110,Tox21,C=C[C@H]1CN2CCC1C[C@H]2[C@H](O)C1:C:C:N:C2:C:C:C(OC):C:C:1:2,C=C[C@H]1CN2CCC1C[C@H]2[C@H](O)c1ccnc2ccc(OC)cc12,324.42,3.17,1,4,45.59,4,0.8776,0,1,NR-AhR,,,,,
+TX0111,Tox21,CC(=O)CCC(C)=O,CC(=O)CCC(C)=O,114.14,0.94,0,2,34.14,3,0.5469,0,0,,,,,,
+TX0112,Tox21,N#CCCNCCC#N,N#CCCNCCC#N,123.16,0.4,1,3,59.61,4,0.5504,0,0,,,,,,
+TX0113,Tox21,CCOC1:C:C:C(N=NC2:C:C:C(C=CC3:C:C:C(N=NC4:C:C:C(OCC):C:C:4):C:C:3S(=O)(=O)[O-]):C(S(=O)(=O)[O-]):C:2):C:C:1,CCOc1ccc(N=Nc2ccc(C=Cc3ccc(N=Nc4ccc(OCC)cc4)cc3S(=O)(=O)[O-])c(S(=O)(=O)[O-])c2)cc1,634.69,7.29,0,12,182.3,12,0.0883,3,0,,,,,,
+TX0114,Tox21,O=C1C2:C:C:C:C:C:2C(=O)C1C1:C:C:C2:C:C(S(=O)(=O)[O-]):C:C(S(=O)(=O)[O-]):C:2:N:1,O=C1c2ccccc2C(=O)C1c1ccc2cc(S(=O)(=O)[O-])cc(S(=O)(=O)[O-])c2n1,431.4,1.21,0,9,161.43,3,0.438,0,1,SR-ARE,,,,,
+TX0115,Tox21,O=C(NC1:C:C:C2:C(O):C(N=NC3:C:C:C(N=NC4:C:C:C(S(=O)(=O)[O-]):C:C:4):C:C:3):C(S(=O)(=O)[O-]):C:C:2:C:1)C1:C:C:C:C:C:1,O=C(Nc1ccc2c(O)c(N=Nc3ccc(N=Nc4ccc(S(=O)(=O)[O-])cc4)cc3)c(S(=O)(=O)[O-])cc2c1)c1ccccc1,629.63,6.44,2,12,213.17,8,0.1435,3,1,SR-ARE,,,,,
+TX0116,Tox21,CSC1:C:C:C2:C(:C:1)C(N1CCN(C)CC1)CC1:C:C:C:C:C:1S2,CSc1ccc2c(c1)C(N1CCN(C)CC1)Cc1ccccc1S2,356.56,4.4,0,4,6.48,2,0.7354,0,0,,,,,,
+TX0117,Tox21,COCCCC/C(=N\OCCN)C1:C:C:C(C(F)(F)F):C:C:1,COCCCC/C(=N\OCCN)c1ccc(C(F)(F)F)cc1,318.34,3.2,1,4,56.84,9,0.432,0,0,,,,,,
+TX0118,Tox21,CC1:C:C:C:C:C:1CCO,Cc1ccccc1CCO,136.19,1.53,1,1,20.23,2,0.6533,0,0,,,,,,
+TX0119,Tox21,CC1:N:C(C):C(C):N:C:1C,Cc1nc(C)c(C)nc1C,136.2,1.71,0,2,25.78,0,0.5423,0,0,,,,,,
+HV0120,HIV,CCC1=[O+][Cu-3]2([O+]=C(CC)C1)[O+]=C(CC)CC(CC)=[O+]2,CCC1=[O+][Cu-3]2([O+]=C(CC)C1)[O+]=C(CC)CC(CC)=[O+]2,319.89,2.67,0,0,45.2,4,0.4344,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0121,HIV,C(=CC1:C:C:C:C:C:1)C1=[O+][Cu-3]2([O+]=C(C=CC3:C:C:C:C:C:3)CC(C3:C:C:C:C:C:3)=[O+]2)[O+]=C(C2:C:C:C:C:C:2)C1,C(=Cc1ccccc1)C1=[O+][Cu-3]2([O+]=C(C=Cc3ccccc3)CC(c3ccccc3)=[O+]2)[O+]=C(c2ccccc2)C1,564.14,7.08,0,0,45.2,6,0.1041,2,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0122,HIV,CC(=O)N1C2:C:C:C:C:C:2SC2:C1:C:C:C1:C:C:C:C:C:2:1,CC(=O)N1c2ccccc2Sc2c1ccc1ccccc21,291.38,4.99,0,2,20.31,0,0.5814,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0123,HIV,NC1:C:C:C(C=CC2:C:C:C(N):C:C:2S(=O)(=O)O):C(S(=O)(=O)O):C:1,Nc1ccc(C=Cc2ccc(N)cc2S(=O)(=O)O)c(S(=O)(=O)O)c1,370.41,1.51,4,6,160.78,4,0.3576,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0124,HIV,O=S(=O)(O)CCS(=O)(=O)O,O=S(=O)(O)CCS(=O)(=O)O,190.2,-1.24,2,4,108.74,3,0.5387,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0125,HIV,CCOP(=O)(NC1:C:C:C:C(Cl):C:1)OCC,CCOP(=O)(Nc1cccc(Cl)c1)OCC,263.66,3.93,1,3,47.56,6,0.7901,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0126,HIV,O=C(O)C1:C:C:C:C:C:1O,O=C(O)c1ccccc1O,138.12,1.09,2,2,57.53,1,0.6103,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0127,HIV,CC1=C2C(=COC(C)C2C)C(O)=C(C(=O)O)C1=O,CC1=C2C(=COC(C)C2C)C(O)=C(C(=O)O)C1=O,250.25,1.72,2,4,83.83,1,0.6921,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0128,HIV,O=[N+]([O-])C1:C:C:C(SSC2:C:C:C([N+](=O)[O-]):C:C:2[N+](=O)[O-]):C([N+](=O)[O-]):C:1,O=[N+]([O-])c1ccc(SSc2ccc([N+](=O)[O-])cc2[N+](=O)[O-])c([N+](=O)[O-])c1,398.33,4.12,0,10,172.56,7,0.3747,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0129,HIV,O=[N+]([O-])C1:C:C:C:C:C:1SSC1:C:C:C:C:C:1[N+](=O)[O-],O=[N+]([O-])c1ccccc1SSc1ccccc1[N+](=O)[O-],308.34,4.3,0,6,86.28,5,0.4647,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0130,HIV,CC(C)(CCC(=O)O)CCC(=O)O,CC(C)(CCC(=O)O)CCC(=O)O,188.22,1.74,2,2,74.6,6,0.6654,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0131,HIV,O=C(O)CC1:C:C:C(SSC2:C:C:C(CC(=O)O):C:C:2):C:C:1,O=C(O)Cc1ccc(SSc2ccc(CC(=O)O)cc2)cc1,334.42,3.74,2,4,74.6,7,0.7514,0,,,,,HIV replication inhibition (NCI screen),CM,1
+HV0132,HIV,O=C(O)C1:C:C:C:C:C:1SSC1:C:C:C:C:C:1C(=O)O,O=C(O)c1ccccc1SSc1ccccc1C(=O)O,306.36,3.88,2,4,74.6,5,0.8165,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0133,HIV,CCCCCCCCCCCC(=O)NC1:C:C:C(SSC2:C:C:C(NC(=O)CCCCCCCCCCC):C:C:2):C:C:1,CCCCCCCCCCCC(=O)Nc1ccc(SSc2ccc(NC(=O)CCCCCCCCCCC)cc2)cc1,612.99,12.2,2,4,58.2,25,0.0865,2,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0134,HIV,SC1:C:C:C:C2:C(S):C:C:C:C:1:2,Sc1cccc2c(S)cccc12,192.31,3.42,2,2,0.0,0,0.5871,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0135,HIV,CCOP(N)(=O)C1:C:C:C:C:C:1,CCOP(N)(=O)c1ccccc1,185.16,1.5,1,2,52.32,3,0.7258,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0136,HIV,NNP(=S)(NN)C1:C:C:C:C:C:1,NNP(=S)(NN)c1ccccc1,202.22,-0.45,4,3,76.1,3,0.3032,0,,,,,HIV replication inhibition (NCI screen),CM,1
+HV0137,HIV,O=P(NC1:C:C:C:C:C:1)(NC1:C:C:C:C:C:1)NC1:C:C:C:C:C:1,O=P(Nc1ccccc1)(Nc1ccccc1)Nc1ccccc1,323.34,5.43,3,1,53.16,6,0.5294,1,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0138,HIV,O=C1C(O)=C(CCCC2:C:C:C(OC3:C:C:C:C:C:3):C:C:2)C(=O)C2:C:C:C:C:C:21,O=C1C(O)=C(CCCc2ccc(Oc3ccccc3)cc2)C(=O)c2ccccc21,384.43,5.69,1,4,63.6,6,0.5926,1,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0139,HIV,CC(C)N(C(C)C)P(=O)(OP(=O)(C1:C:C:C([N+](=O)[O-]):C:C:1)N(C(C)C)C(C)C)C1:C:C:C([N+](=O)[O-]):C:C:1,CC(C)N(C(C)C)P(=O)(OP(=O)(c1ccc([N+](=O)[O-])cc1)N(C(C)C)C(C)C)c1ccc([N+](=O)[O-])cc1,554.52,6.09,0,7,136.13,12,0.1732,2,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0140,HIV,C1:C:C:C2:C(:C:1)SC1:C:C:C:C:C:1S2,c1ccc2c(c1)Sc1ccccc1S2,216.33,4.3,0,2,0.0,0,0.5492,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0141,HIV,CC(C)CCS(=O)(=O)O,CC(C)CCS(=O)(=O)O,152.22,0.92,1,2,54.37,3,0.6117,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0142,HIV,CC1:C:C:C:C:C:1NC(=N)NC1:C:C:C:C:C:1C,Cc1ccccc1NC(=N)Nc1ccccc1C,239.32,3.76,3,1,47.91,2,0.5517,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0143,HIV,CCCNP(=S)(NCCC)NCCC,CCCNP(=S)(NCCC)NCCC,237.35,2.21,3,1,36.09,9,0.5374,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0144,HIV,CCCCCCCCCCCCNP(=S)(NCCCCCCCCCCCC)NCCCCCCCCCCCC,CCCCCCCCCCCCNP(=S)(NCCCCCCCCCCCC)NCCCCCCCCCCCC,616.08,12.74,3,1,36.09,36,0.0484,2,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0145,HIV,O=C1OC(=O)C2:C1:C:C:C1:C:C:C:C:C:2:1,O=C1OC(=O)c2c1ccc1ccccc21,198.18,2.15,0,3,43.37,0,0.4808,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0146,HIV,S=P(NC1CCCCC1)(NC1CCCCC1)NC1CCCCC1,S=P(NC1CCCCC1)(NC1CCCCC1)NC1CCCCC1,357.55,4.98,3,1,36.09,6,0.5862,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0147,HIV,ClC1:C:C:N:C2:C:1:C:C:C1:C(Cl):C:C:N:C:1:2,Clc1ccnc2c1ccc1c(Cl)ccnc12,249.1,4.09,0,2,25.78,0,0.5605,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0148,HIV,O=C(OOC(=O)C1:C:C:C:C:C:1)C1:C:C:C:C:C:1,O=C(OOC(=O)c1ccccc1)c1ccccc1,242.23,2.62,0,4,52.6,2,0.5997,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0149,HIV,C1:C:C:C2:N:S:N:C:2:C:1,c1ccc2nsnc2c1,136.18,1.69,0,3,25.78,0,0.5504,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0150,HIV,S=C1NCCS1,S=C1NCCS1,119.21,0.61,1,2,12.03,0,0.4691,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0151,HIV,CN(C)C1=[S+][Zn-2]2(S1)SC(N(C)C)=[S+]2,CN(C)C1=[S+][Zn-2]2([S]1)[S]C(N(C)C)=[S+]2,305.83,0.76,0,4,6.48,0,0.3701,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0152,HIV,CN(CC1:C:N:C2:N:C(N):N:C(N):C:2:N:1)C1:C:C:C(C(=O)NC(CCC(=O)O)C(=O)O):C:C:1,CN(Cc1cnc2nc(N)nc(N)c2n1)c1ccc(C(=O)NC(CCC(=O)O)C(=O)O)cc1,454.45,0.27,5,10,210.54,9,0.2947,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0153,HIV,[N-]=[N+]=CC(=O)OCC(N)C(=O)O,[N-]=[N+]=CC(=O)OCC(N)C(=O)O,173.13,-1.76,2,4,126.02,4,0.2252,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0154,HIV,NC1:N:C(O):C2:N:N:[NH]:C:2:N:1,Nc1nc(O)c2nn[nH]c2n1,152.12,-0.96,3,6,113.6,0,0.4474,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0155,HIV,CS(=O)(=O)OCCCCOS(C)(=O)=O,CS(=O)(=O)OCCCCOS(C)(=O)=O,246.31,-0.28,0,6,86.74,7,0.4533,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0156,HIV,NC1:N:C(S):C2:N:C:[NH]:C:2:N:1,Nc1nc(S)c2nc[nH]c2n1,167.2,0.22,3,5,80.48,0,0.3872,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0157,HIV,SC1:N:C:N:C2:[NH]:C:N:C:1:2,Sc1ncnc2[nH]cnc12,152.18,0.64,2,4,54.46,0,0.43,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0158,HIV,COC1:C:C2:C(:C(OC):C:1OC)C1:C:C:C(OC):C(=O):C:C:1C(NC(C)=O)CC2,COc1cc2c(c(OC)c1OC)-c1ccc(OC)c(=O)cc1C(NC(C)=O)CC2,399.44,2.87,1,6,83.09,5,0.8325,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0159,HIV,CN(CCCl)CCCl,CN(CCCl)CCCl,156.06,1.4,0,1,3.24,4,0.5557,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0160,HIV,CS(C)=O,CS(C)=O,78.14,-0.01,0,1,17.07,0,0.3982,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0161,HIV,CCCCOB(OCCCC)OCCCC,CCCCOB(OCCCC)OCCCC,230.16,3.42,0,3,27.69,12,0.3795,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0162,HIV,CCCCCOB(OCCCCC)OCCCCC,CCCCCOB(OCCCCC)OCCCCC,272.24,4.59,0,3,27.69,15,0.3221,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0163,HIV,CC1CC(C)(C)OB(OC(C)CC(C)(C)OB2OC(C)CC(C)(C)O2)O1,CC1CC(C)(C)OB(OC(C)CC(C)(C)OB2OC(C)CC(C)(C)O2)O1,370.1,3.75,0,6,55.38,6,0.6642,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0164,HIV,C1:C:C:N2:N:N:N:C:2:C:1,c1ccn2nnnc2c1,120.11,0.12,0,3,43.08,0,0.4957,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0165,HIV,C1:C:C:N2:N:N:C:C:2:C:1,c1ccn2nncc2c1,119.13,0.73,0,2,30.19,0,0.5114,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0166,HIV,ClC1:C:C:C(Cl):C(SSC2:C:C(Cl):C:C:C:2Cl):C:1,Clc1ccc(Cl)c(SSc2cc(Cl)ccc2Cl)c1,356.13,7.1,0,2,0.0,3,0.5382,1,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0167,HIV,CN(C)C1:C:C:C(SSC2:C:C:C(N(C)C):C:C:2):C:C:1,CN(C)c1ccc(SSc2ccc(N(C)C)cc2)cc1,304.48,4.62,0,4,6.48,5,0.7434,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0168,HIV,BrC1:C:C:C(SSC2:C:C:C(Br):C:C:2):C:C:1,Brc1ccc(SSc2ccc(Br)cc2)cc1,376.14,6.01,0,2,0.0,3,0.602,1,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0169,HIV,CC1:C:C:C(SSC2:C:C:C(C):C:C:2):C:C:1,Cc1ccc(SSc2ccc(C)cc2)cc1,246.4,5.1,0,2,0.0,3,0.6908,1,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0170,HIV,COC1:C:C:C(SSC2:C:C:C(OC):C:C:2):C:C:1,COc1ccc(SSc2ccc(OC)cc2)cc1,278.4,4.5,0,4,18.46,5,0.749,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0171,HIV,NC1(C(=O)O)CCCC1,NC1(C(=O)O)CCCC1,129.16,0.34,2,2,63.32,1,0.5363,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0172,HIV,CC(C)(Br)C(=O)C(Br)Br,CC(C)(Br)C(=O)C(Br)Br,322.82,2.84,0,1,17.07,2,0.7145,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0173,HIV,CCOC(=S)SCCSC,CCOC(=S)SCCSC,196.36,2.4,0,4,9.23,4,0.504,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0174,HIV,CCOCC(C)(CO)CC(C)CO,CCOCC(C)(CO)CC(C)CO,190.28,1.04,2,3,49.69,7,0.6304,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0175,HIV,O=C(O)C1CC1,O=C(O)C1CC1,86.09,0.48,1,1,37.3,1,0.5036,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0176,HIV,O=C(O)C1(O)CC(O)C(O)C(O)C1,O=C(O)C1(O)CC(O)C(O)C(O)C1,192.17,-2.32,5,5,118.22,1,0.318,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0177,HIV,NC1:C(Cl):C:C(Cl):C:C:1C(=O)O,Nc1c(Cl)cc(Cl)cc1C(=O)O,206.03,2.27,2,2,63.32,1,0.6923,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0178,HIV,CCCCCOC(=S)S,CCCCCOC(=S)S,164.3,2.41,1,2,9.23,4,0.388,0,,,,,HIV replication inhibition (NCI screen),CI,0
+HV0179,HIV,O=C(O)C1:C:C:C([N+](=O)[O-]):C:C:1S(=O)(=O)O,O=C(O)c1ccc([N+](=O)[O-])cc1S(=O)(=O)O,247.18,0.54,2,5,134.81,3,0.4516,0,,,,,HIV replication inhibition (NCI screen),CI,0
+BC0180,BACE,O1CC[C@@H](NC(=O)[C@@H](Cc2cc3cc(ccc3nc2N)-c2ccccc2C)C)CC1(C)C,Cc1ccccc1-c1ccc2nc(N)c(C[C@@H](C)C(=O)N[C@@H]3CCOC(C)(C)C3)cc2c1,431.58,5.04,2,4,77.24,5,0.5929,1,,,,,"BACE-1 inhibition (pIC50, Alzheimer target)",9.1549015,1
+BC0181,BACE,Fc1cc(cc(F)c1)C[C@H](NC(=O)[C@@H](N1CC[C@](NC(=O)C)(CC(C)C)C1=O)CCc1ccccc1)[C@H](O)[C@@H]1[NH2+]C[C@H](OCCC)C1,CCCO[C@H]1C[NH2+][C@@H]([C@@H](O)[C@H](Cc2cc(F)cc(F)c2)NC(=O)[C@H](CCc2ccccc2)N2CC[C@@](CC(C)C)(NC(C)=O)C2=O)C1,657.82,2.64,4,5,124.58,16,0.2212,1,,,,,"BACE-1 inhibition (pIC50, Alzheimer target)",8.8538723,1
+BC0182,BACE,S1(=O)(=O)N(c2cc(cc3c2n(cc3CC)CC1)C(=O)N[C@H]([C@H](O)C[NH2+]Cc1cc(OC)ccc1)Cc1ccccc1)C,CCc1cn2c3c(cc(C(=O)N[C@@H](Cc4ccccc4)[C@H](O)C[NH2+]Cc4cccc(OC)c4)cc13)N(C)S(=O)(=O)CC2,591.75,2.46,3,5,117.48,11,0.2478,1,,,,,"BACE-1 inhibition (pIC50, Alzheimer target)",8.6989698,1
+BC0183,BACE,O=C1N(CCCC1)C(C)(C)[C@@H]1C[C@@H](CCC1)C(=O)N[C@H]([C@H](O)C[NH2+]Cc1cc(ccc1)C(C)C)Cc1ccccc1,CC(C)c1cccc(C[NH2+]C[C@@H](O)[C@H](Cc2ccccc2)NC(=O)[C@@H]2CCC[C@H](C(C)(C)N3CCCCC3=O)C2)c1,562.82,4.56,3,3,86.25,12,0.3546,1,,,,,"BACE-1 inhibition (pIC50, Alzheimer target)",8.6989698,1
+BC0184,BACE,S1(=O)(=O)N(c2cc(cc3c2n(cc3CC)CC1)C(=O)N[C@H]([C@H](O)C[NH2+]Cc1cc(ccc1)C(F)(F)F)Cc1ccccc1)C,CCc1cn2c3c(cc(C(=O)N[C@@H](Cc4ccccc4)[C@H](O)C[NH2+]Cc4cccc(C(F)(F)F)c4)cc13)N(C)S(=O)(=O)CC2,629.73,3.47,3,4,108.25,10,0.2498,1,,,,,"BACE-1 inhibition (pIC50, Alzheimer target)",8.6989698,1
+BC0185,BACE,S1(=O)C[C@@H](Cc2cc(OC(C(F)(F)F)C(F)(F)F)c(N)c(F)c2)[C@H](O)[C@@H]([NH2+]Cc2cc(ccc2)C(C)(C)C)C1,CC(C)(C)c1cccc(C[NH2+][C@H]2CS(=O)C[C@@H](Cc3cc(F)c(N)c(OC(C(F)(F)F)C(F)(F)F)c3)[C@@H]2O)c1,585.61,3.99,3,4,89.16,7,0.3389,1,,,,,"BACE-1 inhibition (pIC50, Alzheimer target)",8.6989698,1
+BC0186,BACE,S(=O)(=O)(CCCCC)C[C@@H](NC(=O)c1cccnc1)C(=O)N[C@H]([C@H](O)C[NH2+]Cc1cc(ccc1)CC)Cc1cc(F)cc(F)c1,CCCCCS(=O)(=O)C[C@@H](NC(=O)c1cccnc1)C(=O)N[C@@H](Cc1cc(F)cc(F)c1)[C@H](O)C[NH2+]Cc1cccc(CC)c1,645.79,2.48,4,6,142.07,18,0.1568,1,,,,,"BACE-1 inhibition (pIC50, Alzheimer target)",8.6989698,1
+BC0187,BACE,Fc1c2c(ccc1)[C@@]([NH+]=C2N)(C=1C=C(C)C(=O)N(C=1)CC)c1cc(ccc1)-c1cc(cnc1)C#CC,CC#Cc1cncc(-c2cccc([C@@]3(c4cc(C)c(=O)n(CC)c4)[NH+]=C(N)c4c(F)cccc43)c2)c1,477.56,2.84,2,3,74.88,4,0.4442,0,,,,,"BACE-1 inhibition (pIC50, Alzheimer target)",8.6126099,1
+BC0188,BACE,O1c2c(cc(cc2)CC)[C@@H]([NH2+]C[C@@H](O)[C@H]2NC(=O)C=3C=CC(=O)N(CCCCc4cc(C2)ccc4)C=3)CC12CCC2,CCc1ccc2c(c1)[C@@H]([NH2+]C[C@@H](O)[C@@H]1Cc3cccc(c3)CCCCn3cc(ccc3=O)C(=O)N1)CC1(CCC1)O2,556.73,3.46,3,4,97.17,5,0.4486,1,,,,,"BACE-1 inhibition (pIC50, Alzheimer target)",8.6020603,1
+BC0189,BACE,O=C1N(CCCC1)C(C)(C)[C@@H]1C[C@@H](CCC1)C(=O)N[C@H]([C@H](O)C[NH2+]Cc1cc(ccc1)C(C)C)Cc1ccccc1,CC(C)c1cccc(C[NH2+]C[C@@H](O)[C@H](Cc2ccccc2)NC(=O)[C@@H]2CCC[C@H](C(C)(C)N3CCCCC3=O)C2)c1,562.82,4.56,3,3,86.25,12,0.3546,1,,,,,"BACE-1 inhibition (pIC50, Alzheimer target)",8.6020603,1
+BC0190,BACE,Fc1cc(cc(F)c1)C[C@H](NC(=O)c1cc(cc(c1)C)C(=O)N(CCC)CCC)[C@H](O)[C@@H]1[NH2+]C[C@H](Oc2ccccc2)C1,CCCN(CCC)C(=O)c1cc(C)cc(C(=O)N[C@@H](Cc2cc(F)cc(F)c2)[C@H](O)[C@H]2C[C@@H](Oc3ccccc3)C[NH2+]2)c1,594.72,4.02,3,4,95.48,13,0.2787,1,,,,,"BACE-1 inhibition (pIC50, Alzheimer target)",8.5228786,1
+BC0191,BACE,Fc1cc(cc(F)c1)C[C@H](NC(=O)c1cc(cc(c1)C)C(=O)N(CCC)CCC)[C@H](O)[C@@H]1[NH2+]CCN(Cc2ccccc2)C1=O,CCCN(CCC)C(=O)c1cc(C)cc(C(=O)N[C@@H](Cc2cc(F)cc(F)c2)[C@H](O)[C@@H]2[NH2+]CCN(Cc3ccccc3)C2=O)c1,621.75,3.21,3,4,106.56,13,0.2727,1,,,,,"BACE-1 inhibition (pIC50, Alzheimer target)",8.5228786,1

@@ -1,0 +1,593 @@
+{
+  "meta": {
+    "generated_note": "정적 스냅샷 (as_of_date는 행마다 상이, 기사/보도자료 발표 시점 기준)",
+    "total_candidates": 10,
+    "total_companies": 5,
+    "commercialized_count": 0,
+    "as_of_date_range": [
+      "2023-09",
+      "2026-07"
+    ]
+  },
+  "pipeline": [
+    {
+      "company": "Insilico Medicine",
+      "candidate_name": "Rentosertib (ISM3312/INS018_055)",
+      "target_mechanism": "TNIK inhibitor",
+      "indication": "Idiopathic Pulmonary Fibrosis (IPF)",
+      "ai_discovery_approach": "Generative AI end-to-end (target discovery + molecule generation via Pharma.AI)",
+      "current_stage": "Phase III",
+      "stage_group": "Phase III",
+      "stage_order": 4,
+      "commercialized": "No",
+      "key_milestone_note": "세계 최초로 생성형 AI가 타겟 발굴부터 분자 설계까지 전 과정을 담당한 신약후보로 2026년 7월 임상 3상(320명) 진입. 아직 승인 전.",
+      "source_url": "https://insilico.com/news/xmjsn4l091-insilico-initiates-phase-iii-clinical-trial-for-rentosertib",
+      "as_of_date": "2026-07"
+    },
+    {
+      "company": "Insilico Medicine",
+      "candidate_name": "ISM3091",
+      "target_mechanism": "USP1 inhibitor",
+      "indication": "Solid tumors with homologous recombination DNA repair deficiency",
+      "ai_discovery_approach": "AI-driven target ID + generative molecule design",
+      "current_stage": "Phase I/II",
+      "stage_group": "Phase I/II",
+      "stage_order": 3,
+      "commercialized": "No",
+      "key_milestone_note": "2023년 IND 승인. 2023년 9월 Exelixis에 글로벌 라이선스 아웃(계약금 8천만 달러 이상).",
+      "source_url": "https://ir.exelixis.com/news-releases/news-release-details/exelixis-and-insilico-medicine-enter-exclusive-global-license",
+      "as_of_date": "2023-09 (licensed; trial ongoing)"
+    },
+    {
+      "company": "Insilico Medicine",
+      "candidate_name": "ISM8207",
+      "target_mechanism": "QPCTL inhibitor (CD47-SIRPα axis)",
+      "indication": "Oncology (immuno-oncology)",
+      "ai_discovery_approach": "AI target discovery + generative chemistry",
+      "current_stage": "Phase I",
+      "stage_group": "Phase I",
+      "stage_order": 2,
+      "commercialized": "No",
+      "key_milestone_note": "2024년 5월 임상 1상 개시.",
+      "source_url": "https://www.biopharmatrend.com/insilico-medicine-initiates-phase-i-clinical-trial-for-novel-qpctl-inhibitor",
+      "as_of_date": "2024-05"
+    },
+    {
+      "company": "Insilico Medicine",
+      "candidate_name": "ISM5411",
+      "target_mechanism": "HIF-1α stabilizer (GI-restricted)",
+      "indication": "Inflammatory Bowel Disease / Crohn's disease",
+      "ai_discovery_approach": "Generative AI molecule design",
+      "current_stage": "Early clinical (Phase I/IIa)",
+      "stage_group": "Phase I/II",
+      "stage_order": 3,
+      "commercialized": "No",
+      "key_milestone_note": "2026년 1월 Crohn's 관련 학회에서 데이터 발표.",
+      "source_url": "https://insilico.com/news/28ohjfj6u1-insilico-medicine-to-present-3-abstracts-at-the-2026-crohns",
+      "as_of_date": "2026-01"
+    },
+    {
+      "company": "Recursion Pharmaceuticals",
+      "candidate_name": "REC-4881",
+      "target_mechanism": "MEK1/2 inhibitor",
+      "indication": "Familial Adenomatous Polyposis (FAP)",
+      "ai_discovery_approach": "Recursion OS (phenomics + AI map 기반 타겟/화합물 발굴)",
+      "current_stage": "Phase I/II",
+      "stage_group": "Phase I/II",
+      "stage_order": 3,
+      "commercialized": "No",
+      "key_milestone_note": "2026년 5월 기준 Phase 2 유효성 신호 확인, FDA와 등록 경로(registrational pathway) 논의 개시.",
+      "source_url": "https://www.biospace.com/press-releases/recursion-reports-first-quarter-financial-results",
+      "as_of_date": "2026-05"
+    },
+    {
+      "company": "Recursion Pharmaceuticals",
+      "candidate_name": "REC-617",
+      "target_mechanism": "CDK7 inhibitor",
+      "indication": "Advanced solid tumors",
+      "ai_discovery_approach": "Recursion OS + AI 기반 설계 (원래 Exscientia GTAEXS617 프로그램)",
+      "current_stage": "Phase I/II",
+      "stage_group": "Phase I/II",
+      "stage_order": 3,
+      "commercialized": "No",
+      "key_milestone_note": "Recursion-Exscientia 합병(2024년 11월) 이후 통합 파이프라인으로 지속 개발 중.",
+      "source_url": "https://www.recursion.com/pipeline",
+      "as_of_date": "2026-05"
+    },
+    {
+      "company": "Recursion Pharmaceuticals",
+      "candidate_name": "REC-3565",
+      "target_mechanism": "MALT1 inhibitor",
+      "indication": "Oncology (B세포 악성종양)",
+      "ai_discovery_approach": "Recursion OS",
+      "current_stage": "Phase I (early safety data pending)",
+      "stage_group": "Phase I",
+      "stage_order": 2,
+      "commercialized": "No",
+      "key_milestone_note": "2027년 상반기 초기 안전성 데이터 발표 예정(2026년 5월 기준 가이던스).",
+      "source_url": "https://kr.investing.com/news/company-news/recursion-2026-1q",
+      "as_of_date": "2026-05"
+    },
+    {
+      "company": "Exscientia (Recursion 합병)",
+      "candidate_name": "EXS-21546",
+      "target_mechanism": "A2A adenosine receptor antagonist",
+      "indication": "Solid tumors (병용 면역항암)",
+      "ai_discovery_approach": "AI-driven design (Exscientia Centaur Chemist 플랫폼)",
+      "current_stage": "중단 (Discontinued)",
+      "stage_group": "중단",
+      "stage_order": null,
+      "commercialized": "No",
+      "key_milestone_note": "Recursion과의 합병 이후 2025년 우선순위에서 제외되어 임상 중단.",
+      "source_url": "https://www.fiercebiotech.com/biotech/several-months-after-exscientia-merger",
+      "as_of_date": "2025-05"
+    },
+    {
+      "company": "Iambic Therapeutics",
+      "candidate_name": "IAM1363",
+      "target_mechanism": "HER2 inhibitor (뇌투과성; 야생형+변이형 모두 표적)",
+      "indication": "HER2 변이 관련 암종(비소세포폐암 포함)",
+      "ai_discovery_approach": "AI 생성 설계 + 자동화 검증 플랫폼",
+      "current_stage": "Phase I/Ib",
+      "stage_group": "Phase I/Ib",
+      "stage_order": 2,
+      "commercialized": "No",
+      "key_milestone_note": "2025년 10월 ESMO에서 초기 항종양 효능 데이터 공개(약 2년 만에 후보물질에서 First-in-human 도달).",
+      "source_url": "https://www.iambic.ai/post/esmo-iam1363",
+      "as_of_date": "2025-10"
+    },
+    {
+      "company": "Isomorphic Labs (Alphabet/DeepMind 계열)",
+      "candidate_name": "비공개(undisclosed oncology candidates)",
+      "target_mechanism": "미공개",
+      "indication": "종양학(oncology) 후보물질 다수",
+      "ai_discovery_approach": "AlphaFold 기반 AI 신약 설계 엔진",
+      "current_stage": "전임상/IND 준비 단계(첫 임상 진입 준비 중)",
+      "stage_group": "전임상/IND 준비",
+      "stage_order": 1,
+      "commercialized": "No",
+      "key_milestone_note": "2026년 5월 20억1천만 달러 펀딩 유치, 임상 진입 목표로 파이프라인 확장 중. 구체 후보물질명은 아직 미공개.",
+      "source_url": "https://www.prnewswire.com/news-releases/isomorphic-labs-secures-2-1-billion-funding",
+      "as_of_date": "2026-05"
+    }
+  ],
+  "company_summary": [
+    {
+      "company": "Insilico Medicine",
+      "candidate_count": 4,
+      "best_stage_label": "Phase III",
+      "best_stage_order": 4,
+      "discontinued_count": 0,
+      "platforms": [
+        "AI target discovery + generative chemistry",
+        "AI-driven target ID + generative molecule design",
+        "Generative AI end-to-end (target discovery + molecule generation via Pharma.AI)",
+        "Generative AI molecule design"
+      ],
+      "candidates": [
+        "Rentosertib (ISM3312/INS018_055)",
+        "ISM3091",
+        "ISM8207",
+        "ISM5411"
+      ]
+    },
+    {
+      "company": "Recursion Pharmaceuticals",
+      "candidate_count": 3,
+      "best_stage_label": "Phase I/II",
+      "best_stage_order": 3,
+      "discontinued_count": 0,
+      "platforms": [
+        "Recursion OS",
+        "Recursion OS (phenomics + AI map 기반 타겟/화합물 발굴)",
+        "Recursion OS + AI 기반 설계 (원래 Exscientia GTAEXS617 프로그램)"
+      ],
+      "candidates": [
+        "REC-4881",
+        "REC-617",
+        "REC-3565"
+      ]
+    },
+    {
+      "company": "Iambic Therapeutics",
+      "candidate_count": 1,
+      "best_stage_label": "Phase I/Ib",
+      "best_stage_order": 2,
+      "discontinued_count": 0,
+      "platforms": [
+        "AI 생성 설계 + 자동화 검증 플랫폼"
+      ],
+      "candidates": [
+        "IAM1363"
+      ]
+    },
+    {
+      "company": "Isomorphic Labs (Alphabet/DeepMind 계열)",
+      "candidate_count": 1,
+      "best_stage_label": "전임상/IND 준비 단계(첫 임상 진입 준비 중)",
+      "best_stage_order": 1,
+      "discontinued_count": 0,
+      "platforms": [
+        "AlphaFold 기반 AI 신약 설계 엔진"
+      ],
+      "candidates": [
+        "비공개(undisclosed oncology candidates)"
+      ]
+    },
+    {
+      "company": "Exscientia (Recursion 합병)",
+      "candidate_count": 1,
+      "best_stage_label": "중단",
+      "best_stage_order": 0,
+      "discontinued_count": 1,
+      "platforms": [
+        "AI-driven design (Exscientia Centaur Chemist 플랫폼)"
+      ],
+      "candidates": [
+        "EXS-21546"
+      ]
+    }
+  ],
+  "funnel": [
+    {
+      "order": 1,
+      "label": "전임상/IND 준비",
+      "count": 1
+    },
+    {
+      "order": 2,
+      "label": "Phase I",
+      "count": 3
+    },
+    {
+      "order": 3,
+      "label": "Phase I/II",
+      "count": 4
+    },
+    {
+      "order": 4,
+      "label": "Phase III",
+      "count": 1
+    },
+    {
+      "order": 5,
+      "label": "상용화(승인)",
+      "count": 0
+    }
+  ],
+  "discontinued_count": 1,
+  "milestones": [
+    {
+      "company": "Insilico Medicine",
+      "candidate_name": "Rentosertib (ISM3312/INS018_055)",
+      "target_mechanism": "TNIK inhibitor",
+      "indication": "Idiopathic Pulmonary Fibrosis (IPF)",
+      "ai_discovery_approach": "Generative AI end-to-end (target discovery + molecule generation via Pharma.AI)",
+      "current_stage": "Phase III",
+      "stage_group": "Phase III",
+      "stage_order": 4,
+      "commercialized": "No",
+      "key_milestone_note": "세계 최초로 생성형 AI가 타겟 발굴부터 분자 설계까지 전 과정을 담당한 신약후보로 2026년 7월 임상 3상(320명) 진입. 아직 승인 전.",
+      "source_url": "https://insilico.com/news/xmjsn4l091-insilico-initiates-phase-iii-clinical-trial-for-rentosertib",
+      "as_of_date": "2026-07"
+    },
+    {
+      "company": "Recursion Pharmaceuticals",
+      "candidate_name": "REC-4881",
+      "target_mechanism": "MEK1/2 inhibitor",
+      "indication": "Familial Adenomatous Polyposis (FAP)",
+      "ai_discovery_approach": "Recursion OS (phenomics + AI map 기반 타겟/화합물 발굴)",
+      "current_stage": "Phase I/II",
+      "stage_group": "Phase I/II",
+      "stage_order": 3,
+      "commercialized": "No",
+      "key_milestone_note": "2026년 5월 기준 Phase 2 유효성 신호 확인, FDA와 등록 경로(registrational pathway) 논의 개시.",
+      "source_url": "https://www.biospace.com/press-releases/recursion-reports-first-quarter-financial-results",
+      "as_of_date": "2026-05"
+    },
+    {
+      "company": "Recursion Pharmaceuticals",
+      "candidate_name": "REC-617",
+      "target_mechanism": "CDK7 inhibitor",
+      "indication": "Advanced solid tumors",
+      "ai_discovery_approach": "Recursion OS + AI 기반 설계 (원래 Exscientia GTAEXS617 프로그램)",
+      "current_stage": "Phase I/II",
+      "stage_group": "Phase I/II",
+      "stage_order": 3,
+      "commercialized": "No",
+      "key_milestone_note": "Recursion-Exscientia 합병(2024년 11월) 이후 통합 파이프라인으로 지속 개발 중.",
+      "source_url": "https://www.recursion.com/pipeline",
+      "as_of_date": "2026-05"
+    },
+    {
+      "company": "Recursion Pharmaceuticals",
+      "candidate_name": "REC-3565",
+      "target_mechanism": "MALT1 inhibitor",
+      "indication": "Oncology (B세포 악성종양)",
+      "ai_discovery_approach": "Recursion OS",
+      "current_stage": "Phase I (early safety data pending)",
+      "stage_group": "Phase I",
+      "stage_order": 2,
+      "commercialized": "No",
+      "key_milestone_note": "2027년 상반기 초기 안전성 데이터 발표 예정(2026년 5월 기준 가이던스).",
+      "source_url": "https://kr.investing.com/news/company-news/recursion-2026-1q",
+      "as_of_date": "2026-05"
+    },
+    {
+      "company": "Isomorphic Labs (Alphabet/DeepMind 계열)",
+      "candidate_name": "비공개(undisclosed oncology candidates)",
+      "target_mechanism": "미공개",
+      "indication": "종양학(oncology) 후보물질 다수",
+      "ai_discovery_approach": "AlphaFold 기반 AI 신약 설계 엔진",
+      "current_stage": "전임상/IND 준비 단계(첫 임상 진입 준비 중)",
+      "stage_group": "전임상/IND 준비",
+      "stage_order": 1,
+      "commercialized": "No",
+      "key_milestone_note": "2026년 5월 20억1천만 달러 펀딩 유치, 임상 진입 목표로 파이프라인 확장 중. 구체 후보물질명은 아직 미공개.",
+      "source_url": "https://www.prnewswire.com/news-releases/isomorphic-labs-secures-2-1-billion-funding",
+      "as_of_date": "2026-05"
+    },
+    {
+      "company": "Insilico Medicine",
+      "candidate_name": "ISM5411",
+      "target_mechanism": "HIF-1α stabilizer (GI-restricted)",
+      "indication": "Inflammatory Bowel Disease / Crohn's disease",
+      "ai_discovery_approach": "Generative AI molecule design",
+      "current_stage": "Early clinical (Phase I/IIa)",
+      "stage_group": "Phase I/II",
+      "stage_order": 3,
+      "commercialized": "No",
+      "key_milestone_note": "2026년 1월 Crohn's 관련 학회에서 데이터 발표.",
+      "source_url": "https://insilico.com/news/28ohjfj6u1-insilico-medicine-to-present-3-abstracts-at-the-2026-crohns",
+      "as_of_date": "2026-01"
+    },
+    {
+      "company": "Iambic Therapeutics",
+      "candidate_name": "IAM1363",
+      "target_mechanism": "HER2 inhibitor (뇌투과성; 야생형+변이형 모두 표적)",
+      "indication": "HER2 변이 관련 암종(비소세포폐암 포함)",
+      "ai_discovery_approach": "AI 생성 설계 + 자동화 검증 플랫폼",
+      "current_stage": "Phase I/Ib",
+      "stage_group": "Phase I/Ib",
+      "stage_order": 2,
+      "commercialized": "No",
+      "key_milestone_note": "2025년 10월 ESMO에서 초기 항종양 효능 데이터 공개(약 2년 만에 후보물질에서 First-in-human 도달).",
+      "source_url": "https://www.iambic.ai/post/esmo-iam1363",
+      "as_of_date": "2025-10"
+    },
+    {
+      "company": "Exscientia (Recursion 합병)",
+      "candidate_name": "EXS-21546",
+      "target_mechanism": "A2A adenosine receptor antagonist",
+      "indication": "Solid tumors (병용 면역항암)",
+      "ai_discovery_approach": "AI-driven design (Exscientia Centaur Chemist 플랫폼)",
+      "current_stage": "중단 (Discontinued)",
+      "stage_group": "중단",
+      "stage_order": null,
+      "commercialized": "No",
+      "key_milestone_note": "Recursion과의 합병 이후 2025년 우선순위에서 제외되어 임상 중단.",
+      "source_url": "https://www.fiercebiotech.com/biotech/several-months-after-exscientia-merger",
+      "as_of_date": "2025-05"
+    },
+    {
+      "company": "Insilico Medicine",
+      "candidate_name": "ISM8207",
+      "target_mechanism": "QPCTL inhibitor (CD47-SIRPα axis)",
+      "indication": "Oncology (immuno-oncology)",
+      "ai_discovery_approach": "AI target discovery + generative chemistry",
+      "current_stage": "Phase I",
+      "stage_group": "Phase I",
+      "stage_order": 2,
+      "commercialized": "No",
+      "key_milestone_note": "2024년 5월 임상 1상 개시.",
+      "source_url": "https://www.biopharmatrend.com/insilico-medicine-initiates-phase-i-clinical-trial-for-novel-qpctl-inhibitor",
+      "as_of_date": "2024-05"
+    },
+    {
+      "company": "Insilico Medicine",
+      "candidate_name": "ISM3091",
+      "target_mechanism": "USP1 inhibitor",
+      "indication": "Solid tumors with homologous recombination DNA repair deficiency",
+      "ai_discovery_approach": "AI-driven target ID + generative molecule design",
+      "current_stage": "Phase I/II",
+      "stage_group": "Phase I/II",
+      "stage_order": 3,
+      "commercialized": "No",
+      "key_milestone_note": "2023년 IND 승인. 2023년 9월 Exelixis에 글로벌 라이선스 아웃(계약금 8천만 달러 이상).",
+      "source_url": "https://ir.exelixis.com/news-releases/news-release-details/exelixis-and-insilico-medicine-enter-exclusive-global-license",
+      "as_of_date": "2023-09 (licensed; trial ongoing)"
+    }
+  ],
+  "benchmark": {
+    "total_compounds": 191,
+    "dataset_counts": {
+      "ClinTox": 60,
+      "Tox21": 59,
+      "HIV": 60,
+      "BACE": 12
+    },
+    "fda_group_counts": {
+      "approved": 57,
+      "failed_toxicity": 3,
+      "unclassified": 131
+    },
+    "fda_group_stats": {
+      "approved": {
+        "mw": {
+          "min": 27.03,
+          "mean": 212.601,
+          "max": 1448.69,
+          "n": 57
+        },
+        "logp": {
+          "min": -19.4,
+          "mean": -1.823,
+          "max": 6.35,
+          "n": 57
+        },
+        "hbd": {
+          "min": 0.0,
+          "mean": 2.263,
+          "max": 16.0,
+          "n": 57
+        },
+        "hba": {
+          "min": 0.0,
+          "mean": 4.737,
+          "max": 51.0,
+          "n": 57
+        },
+        "tpsa": {
+          "min": 0.0,
+          "mean": 98.303,
+          "max": 772.17,
+          "n": 57
+        },
+        "rotatable_bonds": {
+          "min": 0.0,
+          "mean": 3.877,
+          "max": 36.0,
+          "n": 57
+        },
+        "qed_druglikeness": {
+          "min": 0.026,
+          "mean": 0.385,
+          "max": 0.657,
+          "n": 57
+        },
+        "lipinski_violations": {
+          "min": 0.0,
+          "mean": 0.193,
+          "max": 3.0,
+          "n": 57
+        }
+      },
+      "failed_toxicity": {
+        "mw": {
+          "min": 78.96,
+          "mean": 274.747,
+          "max": 384.25,
+          "n": 3
+        },
+        "logp": {
+          "min": -0.38,
+          "mean": 0.417,
+          "max": 1.27,
+          "n": 3
+        },
+        "hbd": {
+          "min": 0.0,
+          "mean": 2.667,
+          "max": 4.0,
+          "n": 3
+        },
+        "hba": {
+          "min": 0.0,
+          "mean": 3.333,
+          "max": 6.0,
+          "n": 3
+        },
+        "tpsa": {
+          "min": 0.0,
+          "mean": 74.367,
+          "max": 124.44,
+          "n": 3
+        },
+        "rotatable_bonds": {
+          "min": 0.0,
+          "mean": 5.333,
+          "max": 9.0,
+          "n": 3
+        },
+        "qed_druglikeness": {
+          "min": 0.347,
+          "mean": 0.453,
+          "max": 0.55,
+          "n": 3
+        },
+        "lipinski_violations": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0,
+          "n": 3
+        }
+      },
+      "unclassified": {
+        "mw": {
+          "min": 56.06,
+          "mean": 287.703,
+          "max": 663.43,
+          "n": 131
+        },
+        "logp": {
+          "min": -3.65,
+          "mean": 2.713,
+          "max": 12.74,
+          "n": 131
+        },
+        "hbd": {
+          "min": 0.0,
+          "mean": 1.328,
+          "max": 7.0,
+          "n": 131
+        },
+        "hba": {
+          "min": 0.0,
+          "mean": 3.298,
+          "max": 17.0,
+          "n": 131
+        },
+        "tpsa": {
+          "min": 0.0,
+          "mean": 59.467,
+          "max": 321.09,
+          "n": 131
+        },
+        "rotatable_bonds": {
+          "min": 0.0,
+          "mean": 4.939,
+          "max": 36.0,
+          "n": 131
+        },
+        "qed_druglikeness": {
+          "min": 0.048,
+          "mean": 0.509,
+          "max": 0.9,
+          "n": 131
+        },
+        "lipinski_violations": {
+          "min": 0.0,
+          "mean": 0.29,
+          "max": 3.0,
+          "n": 131
+        }
+      }
+    },
+    "toxicity_valid_n": 119,
+    "toxicity_positive_n": 22,
+    "efficacy_by_dataset": {
+      "HIV": {
+        "n": 60,
+        "active": 2,
+        "assay": "HIV replication inhibition (NCI screen)"
+      },
+      "BACE": {
+        "n": 12,
+        "active": 12,
+        "assay": "BACE-1 inhibition (pIC50, Alzheimer target)"
+      }
+    },
+    "tox21_assay_counts": {
+      "SR-ARE": 9,
+      "NR-AhR": 8,
+      "NR-ER": 4,
+      "SR-HSE": 3,
+      "SR-MMP": 3,
+      "SR-p53": 2,
+      "SR-ATAD5": 2,
+      "NR-PPAR-gamma": 1,
+      "NR-ER-LBD": 1,
+      "NR-Aromatase": 1
+    }
+  }
+}
