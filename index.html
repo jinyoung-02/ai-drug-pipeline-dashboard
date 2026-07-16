@@ -314,8 +314,11 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const DATA = {"meta": {"generated_note": "정적 스냅샷 (as_of_date는 행마다 상이, 기사/보도자료 발표 시점 기준)", "total_candidates": 10, "total_companies": 5, "commercialized_count": 0, "as_of_date_range": ["2023-09", "2026-07"]}, "pipeline": [{"company": "Insilico Medicine", "candidate_name": "Rentosertib (ISM3312/INS018_055)", "target_mechanism": "TNIK inhibitor", "indication": "Idiopathic Pulmonary Fibrosis (IPF)", "ai_discovery_approach": "Generative AI end-to-end (target discovery + molecule generation via Pharma.AI)", "current_stage": "Phase III", "stage_group": "Phase III", "stage_order": 4, "commercialized": "No", "key_milestone_note": "세계 최초로 생성형 AI가 타겟 발굴부터 분자 설계까지 전 과정을 담당한 신약후보로 2026년 7월 임상 3상(320명) 진입. 아직 승인 전.", "source_url": "https://insilico.com/news/xmjsn4l091-insilico-initiates-phase-iii-clinical-trial-for-rentosertib", "as_of_date": "2026-07"}, {"company": "Insilico Medicine", "candidate_name": "ISM3091", "target_mechanism": "USP1 inhibitor", "indication": "Solid tumors with homologous recombination DNA repair deficiency", "ai_discovery_approach": "AI-driven target ID + generative molecule design", "current_stage": "Phase I/II", "stage_group": "Phase I/II", "stage_order": 3, "commercialized": "No", "key_milestone_note": "2023년 IND 승인. 2023년 9월 Exelixis에 글로벌 라이선스 아웃(계약금 8천만 달러 이상).", "source_url": "https://ir.exelixis.com/news-releases/news-release-details/exelixis-and-insilico-medicine-enter-exclusive-global-license", "as_of_date": "2023-09 (licensed; trial ongoing)"}, {"company": "Insilico Medicine", "candidate_name": "ISM8207", "target_mechanism": "QPCTL inhibitor (CD47-SIRPα axis)", "indication": "Oncology (immuno-oncology)", "ai_discovery_approach": "AI target discovery + generative chemistry", "current_stage": "Phase I", "stage_group": "Phase I", "stage_order": 2, "commercialized": "No", "key_milestone_note": "2024년 5월 임상 1상 개시.", "source_url": "https://www.biopharmatrend.com/insilico-medicine-initiates-phase-i-clinical-trial-for-novel-qpctl-inhibitor", "as_of_date": "2024-05"}, {"company": "Insilico Medicine", "candidate_name": "ISM5411", "target_mechanism": "HIF-1α stabilizer (GI-restricted)", "indication": "Inflammatory Bowel Disease / Crohn's disease", "ai_discovery_approach": "Generative AI molecule design", "current_stage": "Early clinical (Phase I/IIa)", "stage_group": "Phase I/II", "stage_order": 3, "commercialized": "No", "key_milestone_note": "2026년 1월 Crohn's 관련 학회에서 데이터 발표.", "source_url": "https://insilico.com/news/28ohjfj6u1-insilico-medicine-to-present-3-abstracts-at-the-2026-crohns", "as_of_date": "2026-01"}, {"company": "Recursion Pharmaceuticals", "candidate_name": "REC-4881", "target_mechanism": "MEK1/2 inhibitor", "indication": "Familial Adenomatous Polyposis (FAP)", "ai_discovery_approach": "Recursion OS (phenomics + AI map 기반 타겟/화합물 발굴)", "current_stage": "Phase I/II", "stage_group": "Phase I/II", "stage_order": 3, "commercialized": "No", "key_milestone_note": "2026년 5월 기준 Phase 2 유효성 신호 확인, FDA와 등록 경로(registrational pathway) 논의 개시.", "source_url": "https://www.biospace.com/press-releases/recursion-reports-first-quarter-financial-results", "as_of_date": "2026-05"}, {"company": "Recursion Pharmaceuticals", "candidate_name": "REC-617", "target_mechanism": "CDK7 inhibitor", "indication": "Advanced solid tumors", "ai_discovery_approach": "Recursion OS + AI 기반 설계 (원래 Exscientia GTAEXS617 프로그램)", "current_stage": "Phase I/II", "stage_group": "Phase I/II", "stage_order": 3, "commercialized": "No", "key_milestone_note": "Recursion-Exscientia 합병(2024년 11월) 이후 통합 파이프라인으로 지속 개발 중.", "source_url": "https://www.recursion.com/pipeline", "as_of_date": "2026-05"}, {"company": "Recursion Pharmaceuticals", "candidate_name": "REC-3565", "target_mechanism": "MALT1 inhibitor", "indication": "Oncology (B세포 악성종양)", "ai_discovery_approach": "Recursion OS", "current_stage": "Phase I (early safety data pending)", "stage_group": "Phase I", "stage_order": 2, "commercialized": "No", "key_milestone_note": "2027년 상반기 초기 안전성 데이터 발표 예정(2026년 5월 기준 가이던스).", "source_url": "https://kr.investing.com/news/company-news/recursion-2026-1q", "as_of_date": "2026-05"}, {"company": "Exscientia (Recursion 합병)", "candidate_name": "EXS-21546", "target_mechanism": "A2A adenosine receptor antagonist", "indication": "Solid tumors (병용 면역항암)", "ai_discovery_approach": "AI-driven design (Exscientia Centaur Chemist 플랫폼)", "current_stage": "중단 (Discontinued)", "stage_group": "중단", "stage_order": null, "commercialized": "No", "key_milestone_note": "Recursion과의 합병 이후 2025년 우선순위에서 제외되어 임상 중단.", "source_url": "https://www.fiercebiotech.com/biotech/several-months-after-exscientia-merger", "as_of_date": "2025-05"}, {"company": "Iambic Therapeutics", "candidate_name": "IAM1363", "target_mechanism": "HER2 inhibitor (뇌투과성; 야생형+변이형 모두 표적)", "indication": "HER2 변이 관련 암종(비소세포폐암 포함)", "ai_discovery_approach": "AI 생성 설계 + 자동화 검증 플랫폼", "current_stage": "Phase I/Ib", "stage_group": "Phase I/Ib", "stage_order": 2, "commercialized": "No", "key_milestone_note": "2025년 10월 ESMO에서 초기 항종양 효능 데이터 공개(약 2년 만에 후보물질에서 First-in-human 도달).", "source_url": "https://www.iambic.ai/post/esmo-iam1363", "as_of_date": "2025-10"}, {"company": "Isomorphic Labs (Alphabet/DeepMind 계열)", "candidate_name": "비공개(undisclosed oncology candidates)", "target_mechanism": "미공개", "indication": "종양학(oncology) 후보물질 다수", "ai_discovery_approach": "AlphaFold 기반 AI 신약 설계 엔진", "current_stage": "전임상/IND 준비 단계(첫 임상 진입 준비 중)", "stage_group": "전임상/IND 준비", "stage_order": 1, "commercialized": "No", "key_milestone_note": "2026년 5월 20억1천만 달러 펀딩 유치, 임상 진입 목표로 파이프라인 확장 중. 구체 후보물질명은 아직 미공개.", "source_url": "https://www.prnewswire.com/news-releases/isomorphic-labs-secures-2-1-billion-funding", "as_of_date": "2026-05"}], "company_summary": [{"company": "Insilico Medicine", "candidate_count": 4, "best_stage_label": "Phase III", "best_stage_order": 4, "discontinued_count": 0, "platforms": ["AI target discovery + generative chemistry", "AI-driven target ID + generative molecule design", "Generative AI end-to-end (target discovery + molecule generation via Pharma.AI)", "Generative AI molecule design"], "candidates": ["Rentosertib (ISM3312/INS018_055)", "ISM3091", "ISM8207", "ISM5411"]}, {"company": "Recursion Pharmaceuticals", "candidate_count": 3, "best_stage_label": "Phase I/II", "best_stage_order": 3, "discontinued_count": 0, "platforms": ["Recursion OS", "Recursion OS (phenomics + AI map 기반 타겟/화합물 발굴)", "Recursion OS + AI 기반 설계 (원래 Exscientia GTAEXS617 프로그램)"], "candidates": ["REC-4881", "REC-617", "REC-3565"]}, {"company": "Iambic Therapeutics", "candidate_count": 1, "best_stage_label": "Phase I/Ib", "best_stage_order": 2, "discontinued_count": 0, "platforms": ["AI 생성 설계 + 자동화 검증 플랫폼"], "candidates": ["IAM1363"]}, {"company": "Isomorphic Labs (Alphabet/DeepMind 계열)", "candidate_count": 1, "best_stage_label": "전임상/IND 준비 단계(첫 임상 진입 준비 중)", "best_stage_order": 1, "discontinued_count": 0, "platforms": ["AlphaFold 기반 AI 신약 설계 엔진"], "candidates": ["비공개(undisclosed oncology candidates)"]}, {"company": "Exscientia (Recursion 합병)", "candidate_count": 1, "best_stage_label": "중단", "best_stage_order": 0, "discontinued_count": 1, "platforms": ["AI-driven design (Exscientia Centaur Chemist 플랫폼)"], "candidates": ["EXS-21546"]}], "funnel": [{"order": 1, "label": "전임상/IND 준비", "count": 1}, {"order": 2, "label": "Phase I", "count": 3}, {"order": 3, "label": "Phase I/II", "count": 4}, {"order": 4, "label": "Phase III", "count": 1}, {"order": 5, "label": "상용화(승인)", "count": 0}], "discontinued_count": 1, "milestones": [{"company": "Insilico Medicine", "candidate_name": "Rentosertib (ISM3312/INS018_055)", "target_mechanism": "TNIK inhibitor", "indication": "Idiopathic Pulmonary Fibrosis (IPF)", "ai_discovery_approach": "Generative AI end-to-end (target discovery + molecule generation via Pharma.AI)", "current_stage": "Phase III", "stage_group": "Phase III", "stage_order": 4, "commercialized": "No", "key_milestone_note": "세계 최초로 생성형 AI가 타겟 발굴부터 분자 설계까지 전 과정을 담당한 신약후보로 2026년 7월 임상 3상(320명) 진입. 아직 승인 전.", "source_url": "https://insilico.com/news/xmjsn4l091-insilico-initiates-phase-iii-clinical-trial-for-rentosertib", "as_of_date": "2026-07"}, {"company": "Recursion Pharmaceuticals", "candidate_name": "REC-4881", "target_mechanism": "MEK1/2 inhibitor", "indication": "Familial Adenomatous Polyposis (FAP)", "ai_discovery_approach": "Recursion OS (phenomics + AI map 기반 타겟/화합물 발굴)", "current_stage": "Phase I/II", "stage_group": "Phase I/II", "stage_order": 3, "commercialized": "No", "key_milestone_note": "2026년 5월 기준 Phase 2 유효성 신호 확인, FDA와 등록 경로(registrational pathway) 논의 개시.", "source_url": "https://www.biospace.com/press-releases/recursion-reports-first-quarter-financial-results", "as_of_date": "2026-05"}, {"company": "Recursion Pharmaceuticals", "candidate_name": "REC-617", "target_mechanism": "CDK7 inhibitor", "indication": "Advanced solid tumors", "ai_discovery_approach": "Recursion OS + AI 기반 설계 (원래 Exscientia GTAEXS617 프로그램)", "current_stage": "Phase I/II", "stage_group": "Phase I/II", "stage_order": 3, "commercialized": "No", "key_milestone_note": "Recursion-Exscientia 합병(2024년 11월) 이후 통합 파이프라인으로 지속 개발 중.", "source_url": "https://www.recursion.com/pipeline", "as_of_date": "2026-05"}, {"company": "Recursion Pharmaceuticals", "candidate_name": "REC-3565", "target_mechanism": "MALT1 inhibitor", "indication": "Oncology (B세포 악성종양)", "ai_discovery_approach": "Recursion OS", "current_stage": "Phase I (early safety data pending)", "stage_group": "Phase I", "stage_order": 2, "commercialized": "No", "key_milestone_note": "2027년 상반기 초기 안전성 데이터 발표 예정(2026년 5월 기준 가이던스).", "source_url": "https://kr.investing.com/news/company-news/recursion-2026-1q", "as_of_date": "2026-05"}, {"company": "Isomorphic Labs (Alphabet/DeepMind 계열)", "candidate_name": "비공개(undisclosed oncology candidates)", "target_mechanism": "미공개", "indication": "종양학(oncology) 후보물질 다수", "ai_discovery_approach": "AlphaFold 기반 AI 신약 설계 엔진", "current_stage": "전임상/IND 준비 단계(첫 임상 진입 준비 중)", "stage_group": "전임상/IND 준비", "stage_order": 1, "commercialized": "No", "key_milestone_note": "2026년 5월 20억1천만 달러 펀딩 유치, 임상 진입 목표로 파이프라인 확장 중. 구체 후보물질명은 아직 미공개.", "source_url": "https://www.prnewswire.com/news-releases/isomorphic-labs-secures-2-1-billion-funding", "as_of_date": "2026-05"}, {"company": "Insilico Medicine", "candidate_name": "ISM5411", "target_mechanism": "HIF-1α stabilizer (GI-restricted)", "indication": "Inflammatory Bowel Disease / Crohn's disease", "ai_discovery_approach": "Generative AI molecule design", "current_stage": "Early clinical (Phase I/IIa)", "stage_group": "Phase I/II", "stage_order": 3, "commercialized": "No", "key_milestone_note": "2026년 1월 Crohn's 관련 학회에서 데이터 발표.", "source_url": "https://insilico.com/news/28ohjfj6u1-insilico-medicine-to-present-3-abstracts-at-the-2026-crohns", "as_of_date": "2026-01"}, {"company": "Iambic Therapeutics", "candidate_name": "IAM1363", "target_mechanism": "HER2 inhibitor (뇌투과성; 야생형+변이형 모두 표적)", "indication": "HER2 변이 관련 암종(비소세포폐암 포함)", "ai_discovery_approach": "AI 생성 설계 + 자동화 검증 플랫폼", "current_stage": "Phase I/Ib", "stage_group": "Phase I/Ib", "stage_order": 2, "commercialized": "No", "key_milestone_note": "2025년 10월 ESMO에서 초기 항종양 효능 데이터 공개(약 2년 만에 후보물질에서 First-in-human 도달).", "source_url": "https://www.iambic.ai/post/esmo-iam1363", "as_of_date": "2025-10"}, {"company": "Exscientia (Recursion 합병)", "candidate_name": "EXS-21546", "target_mechanism": "A2A adenosine receptor antagonist", "indication": "Solid tumors (병용 면역항암)", "ai_discovery_approach": "AI-driven design (Exscientia Centaur Chemist 플랫폼)", "current_stage": "중단 (Discontinued)", "stage_group": "중단", "stage_order": null, "commercialized": "No", "key_milestone_note": "Recursion과의 합병 이후 2025년 우선순위에서 제외되어 임상 중단.", "source_url": "https://www.fiercebiotech.com/biotech/several-months-after-exscientia-merger", "as_of_date": "2025-05"}, {"company": "Insilico Medicine", "candidate_name": "ISM8207", "target_mechanism": "QPCTL inhibitor (CD47-SIRPα axis)", "indication": "Oncology (immuno-oncology)", "ai_discovery_approach": "AI target discovery + generative chemistry", "current_stage": "Phase I", "stage_group": "Phase I", "stage_order": 2, "commercialized": "No", "key_milestone_note": "2024년 5월 임상 1상 개시.", "source_url": "https://www.biopharmatrend.com/insilico-medicine-initiates-phase-i-clinical-trial-for-novel-qpctl-inhibitor", "as_of_date": "2024-05"}, {"company": "Insilico Medicine", "candidate_name": "ISM3091", "target_mechanism": "USP1 inhibitor", "indication": "Solid tumors with homologous recombination DNA repair deficiency", "ai_discovery_approach": "AI-driven target ID + generative molecule design", "current_stage": "Phase I/II", "stage_group": "Phase I/II", "stage_order": 3, "commercialized": "No", "key_milestone_note": "2023년 IND 승인. 2023년 9월 Exelixis에 글로벌 라이선스 아웃(계약금 8천만 달러 이상).", "source_url": "https://ir.exelixis.com/news-releases/news-release-details/exelixis-and-insilico-medicine-enter-exclusive-global-license", "as_of_date": "2023-09 (licensed; trial ongoing)"}], "benchmark": {"total_compounds": 191, "dataset_counts": {"ClinTox": 60, "Tox21": 59, "HIV": 60, "BACE": 12}, "fda_group_counts": {"approved": 57, "failed_toxicity": 3, "unclassified": 131}, "fda_group_stats": {"approved": {"mw": {"min": 27.03, "mean": 212.601, "max": 1448.69, "n": 57}, "logp": {"min": -19.4, "mean": -1.823, "max": 6.35, "n": 57}, "hbd": {"min": 0.0, "mean": 2.263, "max": 16.0, "n": 57}, "hba": {"min": 0.0, "mean": 4.737, "max": 51.0, "n": 57}, "tpsa": {"min": 0.0, "mean": 98.303, "max": 772.17, "n": 57}, "rotatable_bonds": {"min": 0.0, "mean": 3.877, "max": 36.0, "n": 57}, "qed_druglikeness": {"min": 0.026, "mean": 0.385, "max": 0.657, "n": 57}, "lipinski_violations": {"min": 0.0, "mean": 0.193, "max": 3.0, "n": 57}}, "failed_toxicity": {"mw": {"min": 78.96, "mean": 274.747, "max": 384.25, "n": 3}, "logp": {"min": -0.38, "mean": 0.417, "max": 1.27, "n": 3}, "hbd": {"min": 0.0, "mean": 2.667, "max": 4.0, "n": 3}, "hba": {"min": 0.0, "mean": 3.333, "max": 6.0, "n": 3}, "tpsa": {"min": 0.0, "mean": 74.367, "max": 124.44, "n": 3}, "rotatable_bonds": {"min": 0.0, "mean": 5.333, "max": 9.0, "n": 3}, "qed_druglikeness": {"min": 0.347, "mean": 0.453, "max": 0.55, "n": 3}, "lipinski_violations": {"min": 0.0, "mean": 0.0, "max": 0.0, "n": 3}}, "unclassified": {"mw": {"min": 56.06, "mean": 287.703, "max": 663.43, "n": 131}, "logp": {"min": -3.65, "mean": 2.713, "max": 12.74, "n": 131}, "hbd": {"min": 0.0, "mean": 1.328, "max": 7.0, "n": 131}, "hba": {"min": 0.0, "mean": 3.298, "max": 17.0, "n": 131}, "tpsa": {"min": 0.0, "mean": 59.467, "max": 321.09, "n": 131}, "rotatable_bonds": {"min": 0.0, "mean": 4.939, "max": 36.0, "n": 131}, "qed_druglikeness": {"min": 0.048, "mean": 0.509, "max": 0.9, "n": 131}, "lipinski_violations": {"min": 0.0, "mean": 0.29, "max": 3.0, "n": 131}}}, "toxicity_valid_n": 119, "toxicity_positive_n": 22, "efficacy_by_dataset": {"HIV": {"n": 60, "active": 2, "assay": "HIV replication inhibition (NCI screen)"}, "BACE": {"n": 12, "active": 12, "assay": "BACE-1 inhibition (pIC50, Alzheimer target)"}}, "tox21_assay_counts": {"SR-ARE": 9, "NR-AhR": 8, "NR-ER": 4, "SR-HSE": 3, "SR-MMP": 3, "SR-p53": 2, "SR-ATAD5": 2, "NR-PPAR-gamma": 1, "NR-ER-LBD": 1, "NR-Aromatase": 1}}};
+const SUPABASE_URL = "https://dygjzgkkkmwpzewcwxoz.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_AOgJ6W-i4n0Y0W5cwnIsNA__vgN3Ut6";
+let DATA = null;
 
 function safeInit(name, fn){
   try { fn(); } catch(e){
@@ -341,6 +344,191 @@ function stageBadgeClass(stageGroup, stageOrder){
   if (stageOrder === 3) return 'badge-phase12';
   if (stageOrder === 4) return 'badge-phase3';
   return 'badge-preclinical';
+}
+
+/* ---------- Supabase 데이터 로딩 & 집계 (scripts/build_pipeline_dashboard.py 로직 포팅) ---------- */
+const STAGE_ORDER_LABELS = [
+  [1, '전임상/IND 준비'],
+  [2, 'Phase I'],
+  [3, 'Phase I/II'],
+  [4, 'Phase III'],
+  [5, '상용화(승인)'],
+];
+const NUMERIC_FIELDS = ['mw', 'logp', 'hbd', 'hba', 'tpsa', 'rotatable_bonds', 'qed_druglikeness', 'lipinski_violations'];
+
+function hasVal(v){ return v !== null && v !== undefined && v !== ''; }
+function toNum(v){ return hasVal(v) ? Number(v) : null; }
+function round3(n){ return Math.round(n * 1000) / 1000; }
+
+function classifyStage(raw){
+  const s = raw || '';
+  if (s.indexOf('중단') !== -1 || s.indexOf('Discontinued') !== -1) return ['중단', null];
+  if (s.indexOf('Phase III') !== -1) return ['Phase III', 4];
+  if (s.indexOf('Phase I/II') !== -1 || s.indexOf('Phase I/IIa') !== -1 || s.indexOf('Early clinical') !== -1) return ['Phase I/II', 3];
+  if (s.indexOf('Phase I/Ib') !== -1) return ['Phase I/Ib', 2];
+  if (s.indexOf('Phase I') !== -1) return ['Phase I', 2];
+  if (s.indexOf('전임상') !== -1 || s.indexOf('IND') !== -1) return ['전임상/IND 준비', 1];
+  return [s, null];
+}
+
+function normalizePipelineRow(r){
+  const [group, order] = classifyStage(r.current_stage);
+  return {
+    company: r.company, candidate_name: r.candidate_name, target_mechanism: r.target_mechanism,
+    indication: r.indication, ai_discovery_approach: r.ai_discovery_approach, current_stage: r.current_stage,
+    stage_group: group, stage_order: order, commercialized: r.commercialized,
+    key_milestone_note: r.key_milestone_note, source_url: r.source_url, as_of_date: r.as_of_date,
+  };
+}
+
+function buildCompanySummary(pipelineRows){
+  const byCompany = new Map();
+  pipelineRows.forEach(r => {
+    if (!byCompany.has(r.company)) byCompany.set(r.company, []);
+    byCompany.get(r.company).push(r);
+  });
+  const summary = [];
+  byCompany.forEach((rows, company) => {
+    const staged = rows.filter(r => r.stage_order !== null);
+    let bestLabel, bestOrder;
+    if (staged.length){
+      const best = staged.reduce((a, b) => (b.stage_order > a.stage_order ? b : a));
+      bestLabel = best.current_stage; bestOrder = best.stage_order;
+    } else {
+      bestLabel = '중단'; bestOrder = 0;
+    }
+    const platforms = Array.from(new Set(rows.map(r => r.ai_discovery_approach))).sort();
+    const discontinuedCount = rows.filter(r => r.stage_order === null).length;
+    summary.push({
+      company, candidate_count: rows.length, best_stage_label: bestLabel, best_stage_order: bestOrder,
+      discontinued_count: discontinuedCount, platforms, candidates: rows.map(r => r.candidate_name),
+    });
+  });
+  summary.sort((a, b) => (b.best_stage_order - a.best_stage_order) || (b.candidate_count - a.candidate_count));
+  return summary;
+}
+
+function buildFunnel(pipelineRows){
+  const counts = new Map();
+  pipelineRows.forEach(r => { if (r.stage_order !== null) counts.set(r.stage_order, (counts.get(r.stage_order) || 0) + 1); });
+  const funnel = STAGE_ORDER_LABELS.map(([order, label]) => ({ order, label, count: counts.get(order) || 0 }));
+  const discontinued = pipelineRows.filter(r => r.stage_order === null).length;
+  return [funnel, discontinued];
+}
+
+function normalizeBenchmarkRow(r){
+  let fdaCat;
+  if (r.fda_approved === '1') fdaCat = 'approved';
+  else if (r.fda_approved === '0') fdaCat = 'failed_toxicity';
+  else fdaCat = 'unclassified';
+  const toxAssays = hasVal(r.toxicity_assay) ? r.toxicity_assay.split(';').filter(a => a) : [];
+  const row = {
+    compound_id: r.compound_id, source_dataset: r.source_dataset, fda_category: fdaCat,
+    toxicity_flag: r.toxicity_flag, toxicity_assays: toxAssays,
+    efficacy_assay: r.efficacy_assay, efficacy_value: r.efficacy_value, efficacy_active_flag: r.efficacy_active_flag,
+  };
+  NUMERIC_FIELDS.forEach(f => { row[f] = toNum(r[f]); });
+  return row;
+}
+
+function groupStats(rows){
+  const stats = {};
+  NUMERIC_FIELDS.forEach(field => {
+    const vals = rows.map(r => r[field]).filter(v => v !== null);
+    if (vals.length){
+      const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
+      stats[field] = { min: round3(Math.min(...vals)), mean: round3(mean), max: round3(Math.max(...vals)), n: vals.length };
+    } else {
+      stats[field] = null;
+    }
+  });
+  return stats;
+}
+
+function buildBenchmark(masterRows){
+  const datasetCounts = {};
+  masterRows.forEach(r => { datasetCounts[r.source_dataset] = (datasetCounts[r.source_dataset] || 0) + 1; });
+
+  const fdaGroups = {};
+  masterRows.forEach(r => { (fdaGroups[r.fda_category] = fdaGroups[r.fda_category] || []).push(r); });
+  const fdaGroupStats = {}, fdaGroupCounts = {};
+  Object.keys(fdaGroups).forEach(cat => { fdaGroupStats[cat] = groupStats(fdaGroups[cat]); fdaGroupCounts[cat] = fdaGroups[cat].length; });
+
+  const toxValid = masterRows.filter(r => hasVal(r.toxicity_flag));
+  const toxPositive = toxValid.filter(r => r.toxicity_flag === '1');
+
+  const efficacyByDataset = {};
+  masterRows.forEach(r => {
+    if (hasVal(r.efficacy_active_flag)){
+      const d = efficacyByDataset[r.source_dataset] = efficacyByDataset[r.source_dataset] || { n: 0, active: 0, assay: null };
+      d.n += 1; d.assay = r.efficacy_assay;
+      if (r.efficacy_active_flag === '1') d.active += 1;
+    }
+  });
+
+  const tox21AssayCounts = {};
+  masterRows.forEach(r => {
+    if (r.source_dataset === 'Tox21'){
+      r.toxicity_assays.forEach(a => { tox21AssayCounts[a] = (tox21AssayCounts[a] || 0) + 1; });
+    }
+  });
+  const tox21Sorted = Object.fromEntries(Object.entries(tox21AssayCounts).sort((a, b) => b[1] - a[1]));
+
+  return {
+    total_compounds: masterRows.length, dataset_counts: datasetCounts,
+    fda_group_counts: fdaGroupCounts, fda_group_stats: fdaGroupStats,
+    toxicity_valid_n: toxValid.length, toxicity_positive_n: toxPositive.length,
+    efficacy_by_dataset: efficacyByDataset, tox21_assay_counts: tox21Sorted,
+  };
+}
+
+async function loadData(){
+  const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const [pipelineRes, benchmarkRes] = await Promise.all([
+    client.from('pipeline_candidates').select('*'),
+    client.from('benchmark_compounds').select('*'),
+  ]);
+  if (pipelineRes.error) throw pipelineRes.error;
+  if (benchmarkRes.error) throw benchmarkRes.error;
+
+  const pipelineRows = pipelineRes.data.map(normalizePipelineRow);
+  const masterRows = benchmarkRes.data.map(normalizeBenchmarkRow);
+  const companySummary = buildCompanySummary(pipelineRows);
+  const [funnel, discontinued] = buildFunnel(pipelineRows);
+  const benchmark = buildBenchmark(masterRows);
+  const asOfPrefixes = Array.from(new Set(pipelineRows.map(r => (r.as_of_date || '').slice(0, 7)))).sort();
+  const milestones = [...pipelineRows].sort((a, b) => (a.as_of_date < b.as_of_date ? 1 : a.as_of_date > b.as_of_date ? -1 : 0));
+
+  DATA = {
+    meta: {
+      generated_note: '실시간 조회 (Supabase, as_of_date는 행마다 상이 - 기사/보도자료 발표 시점 기준)',
+      total_candidates: pipelineRows.length,
+      total_companies: companySummary.length,
+      commercialized_count: pipelineRows.filter(r => (r.commercialized || '').toLowerCase() === 'yes').length,
+      as_of_date_range: asOfPrefixes.length ? [asOfPrefixes[0], asOfPrefixes[asOfPrefixes.length - 1]] : null,
+    },
+    pipeline: pipelineRows, company_summary: companySummary, funnel, discontinued_count: discontinued,
+    milestones, benchmark,
+  };
+}
+
+async function init(){
+  initNav();
+  try {
+    await loadData();
+    safeInit('kpi-grid', initOverview);
+    safeInit('tracker-tbody', initTracker);
+    safeInit('funnel-main', initFunnel);
+    safeInit('company-grid', initCompany);
+    safeInit('milestone-timeline', initMilestones);
+    safeInit('benchmark-kpi-grid', initBenchmark);
+  } catch (e){
+    console.error('[loadData] failed:', e);
+    document.querySelector('.content').insertAdjacentHTML('afterbegin',
+      '<div class="disclaimer" style="background:var(--red-95); border-color:rgba(229,34,34,0.28); color:var(--red-40);">' +
+      '<span class="ic">⚠</span><div>Supabase에서 데이터를 불러오지 못했습니다. 네트워크 연결 또는 Supabase 프로젝트 상태를 확인하세요. (' + esc(e.message || String(e)) + ')</div></div>'
+    );
+  }
 }
 
 /* ---------- 1. 개요 ---------- */
@@ -575,13 +763,7 @@ function initNav(){
   });
 }
 
-safeInit('kpi-grid', initOverview);
-safeInit('tracker-tbody', initTracker);
-safeInit('funnel-main', initFunnel);
-safeInit('company-grid', initCompany);
-safeInit('milestone-timeline', initMilestones);
-safeInit('benchmark-kpi-grid', initBenchmark);
-initNav();
+init();
 </script>
 </body>
 </html>

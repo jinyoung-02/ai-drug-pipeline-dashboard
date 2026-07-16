@@ -314,8 +314,11 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const DATA = __DATA_JSON__;
+const SUPABASE_URL = "https://dygjzgkkkmwpzewcwxoz.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_AOgJ6W-i4n0Y0W5cwnIsNA__vgN3Ut6";
+let DATA = null;
 
 function safeInit(name, fn){
   try { fn(); } catch(e){
@@ -341,6 +344,191 @@ function stageBadgeClass(stageGroup, stageOrder){
   if (stageOrder === 3) return 'badge-phase12';
   if (stageOrder === 4) return 'badge-phase3';
   return 'badge-preclinical';
+}
+
+/* ---------- Supabase 데이터 로딩 & 집계 (scripts/build_pipeline_dashboard.py 로직 포팅) ---------- */
+const STAGE_ORDER_LABELS = [
+  [1, '전임상/IND 준비'],
+  [2, 'Phase I'],
+  [3, 'Phase I/II'],
+  [4, 'Phase III'],
+  [5, '상용화(승인)'],
+];
+const NUMERIC_FIELDS = ['mw', 'logp', 'hbd', 'hba', 'tpsa', 'rotatable_bonds', 'qed_druglikeness', 'lipinski_violations'];
+
+function hasVal(v){ return v !== null && v !== undefined && v !== ''; }
+function toNum(v){ return hasVal(v) ? Number(v) : null; }
+function round3(n){ return Math.round(n * 1000) / 1000; }
+
+function classifyStage(raw){
+  const s = raw || '';
+  if (s.indexOf('중단') !== -1 || s.indexOf('Discontinued') !== -1) return ['중단', null];
+  if (s.indexOf('Phase III') !== -1) return ['Phase III', 4];
+  if (s.indexOf('Phase I/II') !== -1 || s.indexOf('Phase I/IIa') !== -1 || s.indexOf('Early clinical') !== -1) return ['Phase I/II', 3];
+  if (s.indexOf('Phase I/Ib') !== -1) return ['Phase I/Ib', 2];
+  if (s.indexOf('Phase I') !== -1) return ['Phase I', 2];
+  if (s.indexOf('전임상') !== -1 || s.indexOf('IND') !== -1) return ['전임상/IND 준비', 1];
+  return [s, null];
+}
+
+function normalizePipelineRow(r){
+  const [group, order] = classifyStage(r.current_stage);
+  return {
+    company: r.company, candidate_name: r.candidate_name, target_mechanism: r.target_mechanism,
+    indication: r.indication, ai_discovery_approach: r.ai_discovery_approach, current_stage: r.current_stage,
+    stage_group: group, stage_order: order, commercialized: r.commercialized,
+    key_milestone_note: r.key_milestone_note, source_url: r.source_url, as_of_date: r.as_of_date,
+  };
+}
+
+function buildCompanySummary(pipelineRows){
+  const byCompany = new Map();
+  pipelineRows.forEach(r => {
+    if (!byCompany.has(r.company)) byCompany.set(r.company, []);
+    byCompany.get(r.company).push(r);
+  });
+  const summary = [];
+  byCompany.forEach((rows, company) => {
+    const staged = rows.filter(r => r.stage_order !== null);
+    let bestLabel, bestOrder;
+    if (staged.length){
+      const best = staged.reduce((a, b) => (b.stage_order > a.stage_order ? b : a));
+      bestLabel = best.current_stage; bestOrder = best.stage_order;
+    } else {
+      bestLabel = '중단'; bestOrder = 0;
+    }
+    const platforms = Array.from(new Set(rows.map(r => r.ai_discovery_approach))).sort();
+    const discontinuedCount = rows.filter(r => r.stage_order === null).length;
+    summary.push({
+      company, candidate_count: rows.length, best_stage_label: bestLabel, best_stage_order: bestOrder,
+      discontinued_count: discontinuedCount, platforms, candidates: rows.map(r => r.candidate_name),
+    });
+  });
+  summary.sort((a, b) => (b.best_stage_order - a.best_stage_order) || (b.candidate_count - a.candidate_count));
+  return summary;
+}
+
+function buildFunnel(pipelineRows){
+  const counts = new Map();
+  pipelineRows.forEach(r => { if (r.stage_order !== null) counts.set(r.stage_order, (counts.get(r.stage_order) || 0) + 1); });
+  const funnel = STAGE_ORDER_LABELS.map(([order, label]) => ({ order, label, count: counts.get(order) || 0 }));
+  const discontinued = pipelineRows.filter(r => r.stage_order === null).length;
+  return [funnel, discontinued];
+}
+
+function normalizeBenchmarkRow(r){
+  let fdaCat;
+  if (r.fda_approved === '1') fdaCat = 'approved';
+  else if (r.fda_approved === '0') fdaCat = 'failed_toxicity';
+  else fdaCat = 'unclassified';
+  const toxAssays = hasVal(r.toxicity_assay) ? r.toxicity_assay.split(';').filter(a => a) : [];
+  const row = {
+    compound_id: r.compound_id, source_dataset: r.source_dataset, fda_category: fdaCat,
+    toxicity_flag: r.toxicity_flag, toxicity_assays: toxAssays,
+    efficacy_assay: r.efficacy_assay, efficacy_value: r.efficacy_value, efficacy_active_flag: r.efficacy_active_flag,
+  };
+  NUMERIC_FIELDS.forEach(f => { row[f] = toNum(r[f]); });
+  return row;
+}
+
+function groupStats(rows){
+  const stats = {};
+  NUMERIC_FIELDS.forEach(field => {
+    const vals = rows.map(r => r[field]).filter(v => v !== null);
+    if (vals.length){
+      const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
+      stats[field] = { min: round3(Math.min(...vals)), mean: round3(mean), max: round3(Math.max(...vals)), n: vals.length };
+    } else {
+      stats[field] = null;
+    }
+  });
+  return stats;
+}
+
+function buildBenchmark(masterRows){
+  const datasetCounts = {};
+  masterRows.forEach(r => { datasetCounts[r.source_dataset] = (datasetCounts[r.source_dataset] || 0) + 1; });
+
+  const fdaGroups = {};
+  masterRows.forEach(r => { (fdaGroups[r.fda_category] = fdaGroups[r.fda_category] || []).push(r); });
+  const fdaGroupStats = {}, fdaGroupCounts = {};
+  Object.keys(fdaGroups).forEach(cat => { fdaGroupStats[cat] = groupStats(fdaGroups[cat]); fdaGroupCounts[cat] = fdaGroups[cat].length; });
+
+  const toxValid = masterRows.filter(r => hasVal(r.toxicity_flag));
+  const toxPositive = toxValid.filter(r => r.toxicity_flag === '1');
+
+  const efficacyByDataset = {};
+  masterRows.forEach(r => {
+    if (hasVal(r.efficacy_active_flag)){
+      const d = efficacyByDataset[r.source_dataset] = efficacyByDataset[r.source_dataset] || { n: 0, active: 0, assay: null };
+      d.n += 1; d.assay = r.efficacy_assay;
+      if (r.efficacy_active_flag === '1') d.active += 1;
+    }
+  });
+
+  const tox21AssayCounts = {};
+  masterRows.forEach(r => {
+    if (r.source_dataset === 'Tox21'){
+      r.toxicity_assays.forEach(a => { tox21AssayCounts[a] = (tox21AssayCounts[a] || 0) + 1; });
+    }
+  });
+  const tox21Sorted = Object.fromEntries(Object.entries(tox21AssayCounts).sort((a, b) => b[1] - a[1]));
+
+  return {
+    total_compounds: masterRows.length, dataset_counts: datasetCounts,
+    fda_group_counts: fdaGroupCounts, fda_group_stats: fdaGroupStats,
+    toxicity_valid_n: toxValid.length, toxicity_positive_n: toxPositive.length,
+    efficacy_by_dataset: efficacyByDataset, tox21_assay_counts: tox21Sorted,
+  };
+}
+
+async function loadData(){
+  const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const [pipelineRes, benchmarkRes] = await Promise.all([
+    client.from('pipeline_candidates').select('*'),
+    client.from('benchmark_compounds').select('*'),
+  ]);
+  if (pipelineRes.error) throw pipelineRes.error;
+  if (benchmarkRes.error) throw benchmarkRes.error;
+
+  const pipelineRows = pipelineRes.data.map(normalizePipelineRow);
+  const masterRows = benchmarkRes.data.map(normalizeBenchmarkRow);
+  const companySummary = buildCompanySummary(pipelineRows);
+  const [funnel, discontinued] = buildFunnel(pipelineRows);
+  const benchmark = buildBenchmark(masterRows);
+  const asOfPrefixes = Array.from(new Set(pipelineRows.map(r => (r.as_of_date || '').slice(0, 7)))).sort();
+  const milestones = [...pipelineRows].sort((a, b) => (a.as_of_date < b.as_of_date ? 1 : a.as_of_date > b.as_of_date ? -1 : 0));
+
+  DATA = {
+    meta: {
+      generated_note: '실시간 조회 (Supabase, as_of_date는 행마다 상이 - 기사/보도자료 발표 시점 기준)',
+      total_candidates: pipelineRows.length,
+      total_companies: companySummary.length,
+      commercialized_count: pipelineRows.filter(r => (r.commercialized || '').toLowerCase() === 'yes').length,
+      as_of_date_range: asOfPrefixes.length ? [asOfPrefixes[0], asOfPrefixes[asOfPrefixes.length - 1]] : null,
+    },
+    pipeline: pipelineRows, company_summary: companySummary, funnel, discontinued_count: discontinued,
+    milestones, benchmark,
+  };
+}
+
+async function init(){
+  initNav();
+  try {
+    await loadData();
+    safeInit('kpi-grid', initOverview);
+    safeInit('tracker-tbody', initTracker);
+    safeInit('funnel-main', initFunnel);
+    safeInit('company-grid', initCompany);
+    safeInit('milestone-timeline', initMilestones);
+    safeInit('benchmark-kpi-grid', initBenchmark);
+  } catch (e){
+    console.error('[loadData] failed:', e);
+    document.querySelector('.content').insertAdjacentHTML('afterbegin',
+      '<div class="disclaimer" style="background:var(--red-95); border-color:rgba(229,34,34,0.28); color:var(--red-40);">' +
+      '<span class="ic">⚠</span><div>Supabase에서 데이터를 불러오지 못했습니다. 네트워크 연결 또는 Supabase 프로젝트 상태를 확인하세요. (' + esc(e.message || String(e)) + ')</div></div>'
+    );
+  }
 }
 
 /* ---------- 1. 개요 ---------- */
@@ -575,13 +763,7 @@ function initNav(){
   });
 }
 
-safeInit('kpi-grid', initOverview);
-safeInit('tracker-tbody', initTracker);
-safeInit('funnel-main', initFunnel);
-safeInit('company-grid', initCompany);
-safeInit('milestone-timeline', initMilestones);
-safeInit('benchmark-kpi-grid', initBenchmark);
-initNav();
+init();
 </script>
 </body>
 </html>
